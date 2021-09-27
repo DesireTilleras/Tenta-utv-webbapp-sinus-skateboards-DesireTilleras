@@ -215,22 +215,6 @@ namespace SinusSkateBoards.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("SinusSkateboards.Domain.CategoryModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Categories");
-                });
-
             modelBuilder.Entity("SinusSkateboards.Domain.CustomerModel", b =>
                 {
                     b.Property<int>("Id")
@@ -290,7 +274,7 @@ namespace SinusSkateBoards.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CategoryModelId")
+                    b.Property<int>("Category")
                         .HasColumnType("int");
 
                     b.Property<string>("Color")
@@ -313,8 +297,6 @@ namespace SinusSkateBoards.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryModelId");
 
                     b.HasIndex("OrderModelId");
 
@@ -385,17 +367,9 @@ namespace SinusSkateBoards.Data.Migrations
 
             modelBuilder.Entity("SinusSkateboards.Domain.ProductModel", b =>
                 {
-                    b.HasOne("SinusSkateboards.Domain.CategoryModel", "CategoryModel")
-                        .WithMany()
-                        .HasForeignKey("CategoryModelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("SinusSkateboards.Domain.OrderModel", null)
                         .WithMany("Products")
                         .HasForeignKey("OrderModelId");
-
-                    b.Navigation("CategoryModel");
                 });
 
             modelBuilder.Entity("SinusSkateboards.Domain.OrderModel", b =>

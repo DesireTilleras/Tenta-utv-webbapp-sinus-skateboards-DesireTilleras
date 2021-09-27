@@ -13,7 +13,6 @@ namespace SinusSkateBoards.Data.Database
     {
         public DbSet<CustomerModel> Customers { get; set; }
         public DbSet<OrderModel> Orders { get; set; }
-        public DbSet<CategoryModel> Categories { get; set; }
         public DbSet<ProductModel> Products { get; set; }
 
 

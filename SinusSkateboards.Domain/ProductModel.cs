@@ -17,7 +17,6 @@ namespace SinusSkateboards.Domain
         public decimal Price { get; set; }
         public string Image { get; set; }
         public string Description { get; set; }
-        public int CategoryModelId { get; set; }
-        public virtual CategoryModel CategoryModel { get; set; }
+        public Categories Category { get; set; }
     }
 }

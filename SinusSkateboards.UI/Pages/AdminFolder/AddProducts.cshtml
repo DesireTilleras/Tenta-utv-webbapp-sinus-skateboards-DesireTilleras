@@ -4,3 +4,29 @@
 }
 
 <h1>Add new product</h1>
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <h2 class="active"> Add product </h2>
+
+        <form method="post"enctype="multipart/form-data">
+
+            <input id="title" type="text" asp-for="@Model.Product.Title" placeholder="Title" />
+            <input id="price" type="text" asp-for="@Model.Product.Price" placeholder="Price" />
+            <input type="file" asp-for="@Model.Photo" accept=".jpg, .jpeg, .png" />
+            <input id="color" type="text" asp-for="@Model.Product.Color" placeholder="Color" />
+            <input id="description" type="text" asp-for="@Model.Product.Description" placeholder="Description" />
+            <select id="Category" asp-for="@Model.Product.Category">
+                <option selected="selected" value=""></option>
+                @foreach (var category in Model.CategoryList)
+                {
+                    <option value="@category">@category</option>
+                }
+
+            </select>
+            <br />
+            <button class="btn-primary"> Save </button><br />
+        </form>
+    </div>
+</div>
