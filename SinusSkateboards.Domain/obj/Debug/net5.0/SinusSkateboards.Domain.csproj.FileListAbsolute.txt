@@ -1,0 +1,15 @@
+C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Domain\bin\Debug\net5.0\SinusSkateboards.Domain.deps.json
+C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Domain\bin\Debug\net5.0\SinusSkateboards.Domain.runtimeconfig.json
+C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Domain\bin\Debug\net5.0\SinusSkateboards.Domain.runtimeconfig.dev.json
+C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Domain\bin\Debug\net5.0\SinusSkateboards.Domain.dll
+C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Domain\bin\Debug\net5.0\ref\SinusSkateboards.Domain.dll
+C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Domain\bin\Debug\net5.0\SinusSkateboards.Domain.pdb
+C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Domain\obj\Debug\net5.0\SinusSkateboards.Domain.csprojAssemblyReference.cache
+C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Domain\obj\Debug\net5.0\SinusSkateboards.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Domain\obj\Debug\net5.0\SinusSkateboards.Domain.AssemblyInfoInputs.cache
+C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Domain\obj\Debug\net5.0\SinusSkateboards.Domain.AssemblyInfo.cs
+C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Domain\obj\Debug\net5.0\SinusSkateboards.Domain.csproj.CoreCompileInputs.cache
+C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Domain\obj\Debug\net5.0\SinusSkateboards.Domain.dll
+C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Domain\obj\Debug\net5.0\ref\SinusSkateboards.Domain.dll
+C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Domain\obj\Debug\net5.0\SinusSkateboards.Domain.pdb
+C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Domain\obj\Debug\net5.0\SinusSkateboards.Domain.genruntimeconfig.cache

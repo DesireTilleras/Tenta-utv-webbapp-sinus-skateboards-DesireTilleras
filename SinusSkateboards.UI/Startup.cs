@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SinusSkateBoards.Data.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +26,9 @@ namespace SinusSkateboards.UI
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddRazorPages();
+
+			services.AddDbContext<AuthDbContext>(options =>
+	    options.UseSqlServer(Configuration.GetConnectionString("AuthDbConnection")));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

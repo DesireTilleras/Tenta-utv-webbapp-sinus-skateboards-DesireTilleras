@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinusSkateboards.UI", "SinusSkateboards.UI\SinusSkateboards.UI.csproj", "{FB871070-FD14-439C-91FB-E8AC72188A51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SinusSkateboards.UI", "SinusSkateboards.UI\SinusSkateboards.UI.csproj", "{FB871070-FD14-439C-91FB-E8AC72188A51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinusSkateboards.Domain", "SinusSkateboards.Domain\SinusSkateboards.Domain.csproj", "{B7CA55D4-2EB3-4FBB-BCD3-A09EC2051977}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinusSkateBoards.Data", "SinusSkateBoards.Data\SinusSkateBoards.Data.csproj", "{EF68B83F-7EAB-42D9-8627-D46054207965}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{FB871070-FD14-439C-91FB-E8AC72188A51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB871070-FD14-439C-91FB-E8AC72188A51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB871070-FD14-439C-91FB-E8AC72188A51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7CA55D4-2EB3-4FBB-BCD3-A09EC2051977}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7CA55D4-2EB3-4FBB-BCD3-A09EC2051977}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7CA55D4-2EB3-4FBB-BCD3-A09EC2051977}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7CA55D4-2EB3-4FBB-BCD3-A09EC2051977}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF68B83F-7EAB-42D9-8627-D46054207965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF68B83F-7EAB-42D9-8627-D46054207965}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF68B83F-7EAB-42D9-8627-D46054207965}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF68B83F-7EAB-42D9-8627-D46054207965}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
