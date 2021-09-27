@@ -1,0 +1,44 @@
+﻿@page
+@model SinusSkateboards.UI.Pages.AdminFolder.EditProductModel
+@{
+}
+
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <h2 class="active"> Edit product </h2>
+
+        <form method="post" enctype="multipart/form-data">
+            <input hidden asp-for="@Model.Product.Id" />
+            <img src="~/images/@Model.Product.Image" class="img-thumbnail" style="width:70px" asp-append-version="true" />
+            <h2>@Model.Product.Title</h2>
+            <input hidden asp-for="@Model.Product.Title" />
+            <input id="title" type="text" asp-for="@Model.NewTitle" placeholder="New Title" />
+            <h2>@Model.Product.Price</h2>
+            <input hidden asp-for="@Model.Product.Price" />
+            <input id="price" type="text" asp-for="@Model.NewPrice" placeholder="New Price" />
+            <h2>@Model.Product.Color</h2>
+            <input hidden asp-for="@Model.Product.Color" />
+            <input id="color" type="text" asp-for="@Model.NewColor" placeholder="New Color" />
+            <p>@Model.Product.Description</p>
+            <input hidden asp-for="@Model.Product.Description" />
+            <input id="description" type="text" asp-for="@Model.NewDescription" placeholder="New Description" />
+            <label for="Category">Choose category:</label>
+            <input hidden asp-for="@Model.Product.Category" />
+            <select id="Category" asp-for="@Model.NewCategory">
+                <option selected="selected" value=""></option>
+                @foreach (var category in Model.CategoryList)
+                {
+                    <option value="@category">@category</option>
+                }
+
+            </select>
+            <input hidden asp-for="@Model.Product.Image" />
+            <label for="imageUpload" class="btn-primary">Select image...</label>
+            <input type="file" style="display:none" id="imageUpload" asp-for="@Model.Photo" accept=".jpg, .jpeg, .png" />
+            <br />
+            <button class="btn-primary"> Save </button><br />
+        </form>
+    </div>
+</div>

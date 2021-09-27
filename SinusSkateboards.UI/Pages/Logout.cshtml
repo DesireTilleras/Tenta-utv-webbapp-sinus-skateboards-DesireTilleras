@@ -2,17 +2,22 @@
 @model SinusSkateboards.UI.Pages.LogoutModel
 @{
 }
-<form method="post">
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-sm-12 col-md-12 col-lg-4">
-                <p>Are you sure you want to logout?</p>
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <form method="post">
+
+            <div class="row justify-content-center">
+
+                <h2 class="active"> Are you sure you want to logout? </h2>
                 <p>
                     <button class="btn btn-primary" asp-page-handler="Logout">Yes</button>
                     <button class=" btn btn-primary" asp-page-handler="DontLogout">No</button>
                 </p>
 
+
             </div>
-        </div>
+
+        </form>
     </div>
-</form>
+</div>
