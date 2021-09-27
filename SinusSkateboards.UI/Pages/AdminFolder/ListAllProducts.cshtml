@@ -1,0 +1,38 @@
+﻿@page
+@model SinusSkateboards.UI.Pages.AdminFolder.ListAllProductsModel
+@{
+}
+
+<body style="background-image:none">
+    <div class="container">
+        <div class="row">
+            @if (Model.ListOfAllProducts != null && Model.ListOfAllProducts.Any())
+            {
+                @foreach (var product in Model.ListOfAllProducts)
+                {
+                    <div class="col-md-4">
+                        <div class="card">
+                            <h2 style="color:cadetblue">
+                                Title: @product.Title
+
+                            </h2>
+
+                            <h3>Price: @product.Price</h3>
+                            <h3>Category : @product.Category</h3>
+                            <img src="~/images/@product.Image" class="img-thumbnail" style="width:100px" asp-append-version="true" />
+
+                            <br />
+                            <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
+                        </div>
+
+                    </div>
+                }
+            }
+
+        </div>
+
+
+        <a class="btn btn-dark" asp-page="/Index"> Go back to front page</a>
+
+    </div>
+</body>

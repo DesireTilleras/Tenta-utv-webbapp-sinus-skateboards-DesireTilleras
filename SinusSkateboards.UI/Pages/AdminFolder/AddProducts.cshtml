@@ -10,13 +10,13 @@
         <!-- Tabs Titles -->
         <h2 class="active"> Add product </h2>
 
-        <form method="post"enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data">
 
             <input id="title" type="text" asp-for="@Model.Product.Title" placeholder="Title" />
             <input id="price" type="text" asp-for="@Model.Product.Price" placeholder="Price" />
-            <input type="file" asp-for="@Model.Photo" accept=".jpg, .jpeg, .png" />
             <input id="color" type="text" asp-for="@Model.Product.Color" placeholder="Color" />
             <input id="description" type="text" asp-for="@Model.Product.Description" placeholder="Description" />
+            <label for="Category">Choose category:</label>
             <select id="Category" asp-for="@Model.Product.Category">
                 <option selected="selected" value=""></option>
                 @foreach (var category in Model.CategoryList)
@@ -25,6 +25,8 @@
                 }
 
             </select>
+            <label for="imageUpload" class="btn-primary">Select image...</label>
+            <input type="file" style="display:none" id="imageUpload" asp-for="@Model.Photo" accept=".jpg, .jpeg, .png" />
             <br />
             <button class="btn-primary"> Save </button><br />
         </form>
