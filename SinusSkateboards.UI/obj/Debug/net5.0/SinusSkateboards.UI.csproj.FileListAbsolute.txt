@@ -390,3 +390,5 @@ C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.UI
 C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.UI\obj\Debug\net5.0\ref\SinusSkateboards.UI.dll
 C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.UI\obj\Debug\net5.0\SinusSkateboards.UI.pdb
 C:\Users\desir\Source\Repos\sinus-skateboards-DesireTilleras\SinusSkateboards.UI\obj\Debug\net5.0\SinusSkateboards.UI.genruntimeconfig.cache
+C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.UI\obj\Debug\net5.0\Razor\Pages\AdminFolder\AddProducts.cshtml.g.cs
+C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.UI\obj\Debug\net5.0\Razor\Pages\Login.cshtml.g.cs

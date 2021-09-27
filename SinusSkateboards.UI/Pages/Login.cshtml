@@ -1,0 +1,22 @@
+﻿@page
+@model SinusSkateboards.UI.Pages.LoginModel
+@{
+}
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <h2 class="active"> Sign In </h2>
+
+        <form method="post">
+            <span class="text-danger" asp-validation-for="@Model.Username"></span>
+            <br />
+            <span class="text-danger" asp-validation-for="@Model.Password"></span>
+            <br />
+            <input id="username" type="text" asp-for="@Model.Username" placeholder="Username" />
+            <input id="password" type="password" asp-for="@Model.Password" placeholder="Password" />
+            <button class="btn-primary"> Sign in</button><br />
+
+        </form>
+    </div>
+</div>
