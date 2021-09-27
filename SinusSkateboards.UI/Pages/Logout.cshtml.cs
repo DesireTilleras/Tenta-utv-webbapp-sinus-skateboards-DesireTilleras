@@ -29,8 +29,8 @@ namespace SinusSkateboards.UI.Pages
         public IActionResult OnPostDontLogoutAsync()
         {
 
-            return RedirectToPage("/ChatRoom/CreateChatRoom");
+            return RedirectToPage("/AdminFolder/AddProducts");
         }
     }
 }
-}
+
