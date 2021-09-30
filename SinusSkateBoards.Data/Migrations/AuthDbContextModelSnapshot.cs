@@ -367,9 +367,11 @@ namespace SinusSkateBoards.Data.Migrations
 
             modelBuilder.Entity("SinusSkateboards.Domain.ProductModel", b =>
                 {
-                    b.HasOne("SinusSkateboards.Domain.OrderModel", null)
+                    b.HasOne("SinusSkateboards.Domain.OrderModel", "OrderModel")
                         .WithMany("Products")
                         .HasForeignKey("OrderModelId");
+
+                    b.Navigation("OrderModel");
                 });
 
             modelBuilder.Entity("SinusSkateboards.Domain.OrderModel", b =>

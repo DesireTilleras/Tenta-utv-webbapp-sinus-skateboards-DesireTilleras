@@ -34,5 +34,25 @@
             }
 
         </div>
+
+
     </div>
 </form>
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <h2 class="active"> Enter information </h2>
+
+        <form method="post" enctype="multipart/form-data">
+
+            <input id="Name" type="text" asp-for="@Model.Customer.Name" placeholder="Name" />
+            <input id="Address" type="text" asp-for="@Model.Customer.Address" placeholder="Address" />
+            <input id="ZipCode" type="text" asp-for="@Model.Customer.ZipCode" placeholder="ZipCode" />
+            <input id="City" type="text" asp-for="@Model.Customer.City" placeholder="City" />
+            <input id="PhoneNumber" type="text" asp-for="@Model.Customer.PhoneNumber" placeholder="Phone number" />
+            <br />
+            <button class="btn-primary" asp-page-handler="CheckOut"> Save and confirm order </button><br />
+        </form>
+    </div>
+</div>

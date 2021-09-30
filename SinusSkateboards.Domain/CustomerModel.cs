@@ -11,15 +11,15 @@ namespace SinusSkateboards.Domain
    public class CustomerModel
     {
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please input name")]
         public string Name  { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please input address")]
         public string Address { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please input ZipCode")]
         public string ZipCode { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please input city")]
         public string City { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please input phone number")]
         public string PhoneNumber { get; set; }
     }
 }

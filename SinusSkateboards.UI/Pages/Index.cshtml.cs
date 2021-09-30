@@ -13,109 +13,98 @@ using SinusSkateboards.Application;
 
 namespace SinusSkateboards.UI.Pages
 {
-	public class IndexModel : PageModel
-	{
-		[BindProperty]
-		public List<Categories> CategoryList { get; set; } = Enum.GetValues(typeof(Categories)).Cast<Categories>().ToList();
+    public class IndexModel : PageModel
+    {
+        [BindProperty]
+        public List<Categories> CategoryList { get; set; } = Enum.GetValues(typeof(Categories)).Cast<Categories>().ToList();
 
-		[BindProperty]
+        [BindProperty]
         public static List<ProductModel> ListOfAllProducts { get; set; }
 
+        public static List<ProductModel> ProductsAddedToCart { get; set; } = CartListClass.ListOfCartItems;
 
-		[BindProperty]
-		public List<ProductModel> ListProductsOnCategory { get; set; }
+        [BindProperty]
+        public List<ProductModel> MatchedProducts { get; set; } = new List<ProductModel>();
 
-		public static List<ProductModel> ProductsAddedToCart { get; set; } = CartListClass.ListOfCartItems;
-
-		public List<ProductModel> MatchedProducts { get; set; } = new List<ProductModel>();
-		[BindProperty]
-
-		public List<ProductModel> ShowMatchedProducts { get; set; }
-
-		public ProductModel Product { get; set; }
+        public ProductModel Product { get; set; }
 
         private readonly AuthDbContext _context;
 
         public IndexModel(AuthDbContext context)
         {
-			_context = context;
+            _context = context;
 
         }
 
-		public void OnGet()
-		{
-			ListOfAllProducts = _context.Products.Select(x => x).ToList();			
-
-		}
-
-		public async Task<IActionResult> OnPost(string search)
+        public void OnGet()
         {
-            if (search!=null)
+            ListOfAllProducts = _context.Products.Select(x => x).ToList();
+
+            ListOfAllProducts.GroupBy(x => x.Image).Select(x => x.FirstOrDefault()).ToList();
+
+            
+            CategoryList = Enum.GetValues(typeof(Categories)).Cast<Categories>().ToList();
+        }
+
+        public IActionResult OnPost(string search, string category)
+        {
+            if (category != "Category")
             {
-				var listTitle = ListOfAllProducts.Where(x => x.Title.Contains(search)).ToList();
-                if (listTitle != null)
+                MatchedProducts = ListOfAllProducts.Where(x => x.Category.ToString() == category).ToList().Distinct().ToList();
+
+                if (search != null)
                 {
-					foreach (var product in listTitle)
-					{
-						MatchedProducts.Add(product);
-					}
-				}
-		
-				var listDescription = ListOfAllProducts.Where(x => x.Description.Contains(search)).ToList();
+                    MatchedProducts = MatchedProducts.Where(x => x.Title.ToLower().Contains(search.ToLower())
+                || x.Description.ToLower().Contains(search.ToLower())
+                || x.Color.ToLower().Contains(search.ToLower())
+                || x.Category.ToString().ToLower().Contains(search.ToLower())).ToList();
+                }
 
-				if (listDescription != null)
-				{
-					foreach (var product in listDescription)
-					{
-						MatchedProducts.Add(product);
-					}
-				}
+                MatchedProducts = MatchedProducts.GroupBy(x => x.Image).Select(x => x.FirstOrDefault()).ToList();
 
-				var listColor = ListOfAllProducts.Where(x => x.Color.Contains(search)).ToList();
-				if (listColor != null)
-				{
-					foreach (var product in listColor)
-					{
-						MatchedProducts.Add(product);
+                return Page();
 
-					}
-				}
+            }
+            else
+            {
+                if (search != null)
+                {
+                    MatchedProducts = ListOfAllProducts.Where(x => x.Title.ToLower().Contains(search.ToLower())
+                    || x.Description.ToLower().Contains(search.ToLower())
+                    || x.Color.ToLower().Contains(search.ToLower())
+                    || x.Category.ToString().ToLower().Contains(search.ToLower())).ToList();
 
-				ShowMatchedProducts = MatchedProducts.Distinct().ToList();
+                    MatchedProducts = MatchedProducts.GroupBy(x => x.Image).Select(x => x.FirstOrDefault()).ToList();
 
-				return Page();
-			}
+                    return Page();
 
-			return Page();
+                }
+
+            }
+
+            return Page();
 
 
         }
-		public void OnPostAddToCart(int id)
-		{
-
-			Product = ListOfAllProducts.Where(x => x.Id == id).FirstOrDefault();
-
-
-			string stringAddedToCart = HttpContext.Session.GetString("AddToCart");
-
-			if (!String.IsNullOrEmpty(stringAddedToCart))
-			{
-				ProductsAddedToCart = JsonConvert.DeserializeObject<List<ProductModel>>(stringAddedToCart);
-			}
-
-			ProductsAddedToCart.Add(Product);
-
-			stringAddedToCart = JsonConvert.SerializeObject(ProductsAddedToCart);
-			HttpContext.Session.SetString("AddToCart", stringAddedToCart);
-
-			RedirectToPage("Index");
-		}
-
-		public void OnPostShowProducts(string category)
+        public void OnPostAddToCart(int id)
         {
 
-			ListProductsOnCategory = ListOfAllProducts.Where(x => x.Category.ToString() == category).ToList();
+            Product = ListOfAllProducts.Where(x => x.Id == id).FirstOrDefault();
 
+
+            string stringAddedToCart = HttpContext.Session.GetString("AddToCart");
+
+            if (!String.IsNullOrEmpty(stringAddedToCart))
+            {
+                ProductsAddedToCart = JsonConvert.DeserializeObject<List<ProductModel>>(stringAddedToCart);
+            }
+
+            ProductsAddedToCart.Add(Product);
+
+            stringAddedToCart = JsonConvert.SerializeObject(ProductsAddedToCart);
+            HttpContext.Session.SetString("AddToCart", stringAddedToCart);
+
+            RedirectToPage("Index");
         }
-	}
+    }
 }
