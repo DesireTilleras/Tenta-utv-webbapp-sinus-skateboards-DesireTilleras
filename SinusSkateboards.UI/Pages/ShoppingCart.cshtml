@@ -55,11 +55,11 @@
 
             <form method="post" enctype="multipart/form-data">
 
-                <input id="Name" type="text" asp-for="@Model.Customer.Name" placeholder="Name" />
-                <input id="Address" type="text" asp-for="@Model.Customer.Address" placeholder="Address" />
-                <input id="ZipCode" type="text" asp-for="@Model.Customer.ZipCode" placeholder="ZipCode" />
-                <input id="City" type="text" asp-for="@Model.Customer.City" placeholder="City" />
-                <input id="PhoneNumber" type="text" asp-for="@Model.Customer.PhoneNumber" placeholder="Phone number" />
+                <input id="Name" type="text" asp-for="@Model.Customer.Name" placeholder="Name" required/>
+                <input id="Address" type="text" asp-for="@Model.Customer.Address" placeholder="Address" required />
+                <input id="ZipCode" type="text" asp-for="@Model.Customer.ZipCode" placeholder="ZipCode" required/>
+                <input id="City" type="text" asp-for="@Model.Customer.City" placeholder="City" required/>
+                <input id="PhoneNumber" type="text" asp-for="@Model.Customer.PhoneNumber" placeholder="Phone number" required/>
                 <br />
                 <button class="btn-primary" asp-page-handler="CheckOut"> Save and confirm order </button><br />
             </form>
