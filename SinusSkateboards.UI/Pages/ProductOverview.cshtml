@@ -1,0 +1,46 @@
+﻿@page
+@model SinusSkateboards.UI.Pages.ProductOverviewModel
+@{
+}
+
+<body style="background-image:none">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="~/images/@Model.Product.Image" style="width:300px" />
+
+            </div>
+            <div class="col">
+                <h2>@Model.Product.Title</h2>
+                <div class="row">
+                    <h3>@Model.Product.Category</h3>
+                </div>
+                <div class=" row">
+                    <h3>@Model.Product.Price SEK</h3>
+                </div>
+                <div class="row">
+                    <h3>@Model.Product.Color</h3>
+                </div>
+                <div class="row">
+                    <p>@Model.Product.Description</p>
+                </div>
+                <div class="row">
+                    <input class="btn-primary" asp-page-handler="AddToCart" asp-route-id="@Model.Product.Id" type="submit" value="Add to cart!" />
+                </div>
+                <div class="row" style="text-align:center">
+                    <p>Also in these colors</p>
+                </div>
+                <div class="row">
+                    @foreach (var product in Model.ListAlsoInColors)
+                    {
+                        <div class="col-md-6">
+                            <a style="background-color:white" asp-page="ProductOverview" asp-route-id="@product.Id"><img src="~/images/@product.Image" style="width:100px" /> </a>
+                            <h5 style="text-align:center">Color: @product.Color</h5>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,10 +1,13 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SinusSkateboards.Application;
+using SinusSkateboards.UI.Pages;
 using SinusSkateBoards.Data.Database;
 using System;
 using System.Collections.Generic;
@@ -50,7 +53,10 @@ namespace SinusSkateboards.UI
                 Console.WriteLine(e.Message);
             }
 
+
             host.Run();
+
+
         }
 
 		public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -59,5 +65,9 @@ namespace SinusSkateboards.UI
 				{
 					webBuilder.UseStartup<Startup>();
 				});
-	}
+
+
+    }
+
+
 }

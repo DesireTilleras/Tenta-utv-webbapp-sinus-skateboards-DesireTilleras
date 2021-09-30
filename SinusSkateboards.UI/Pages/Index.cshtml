@@ -4,5 +4,101 @@
     ViewData["Title"] = "Home page";
 }
 
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<form method="post" class="example" style="width:500px">
+    <input type="text" placeholder="Search.." name="search">
+    <button type="submit" asp-route-search="search"><i class="fa fa-search"></i></button>
+</form>
+
+<form method="post">
+    <div class="container">
+        <div class="row">
+            @foreach (var category in Model.CategoryList)
+            {
+                <div class="col-md-4">
+                    <div class="card" style="width:300px">
+                        <input type="checkbox" id="CategoryCap" name="Category" value="@category.ToString()" />
+                        <label for="CategoryCap" style="color:white">@category</label>
+                    </div>
+                </div>
+
+            }
+        </div>
+        <div class="row">
+            <input asp-page-handler="ShowProducts" asp-route-category="Category" type="submit" value="Update" />
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row">
+            @if (Model.ListProductsOnCategory != null && Model.ListProductsOnCategory.Any())
+            {
+                @foreach (var product in Model.ListProductsOnCategory)
+                {
+                    <div class="col-md-4">
+
+                        <div class="card">
+                            <h1>
+                                @product.Title
+                            </h1>
+                            <h3>Price: @product.Price SEK</h3>
+                            <h3>Category : @product.Category</h3>
+                            <a asp-page="ProductOverview" asp-route-id="@product.Id"><img src="~/images/@product.Image" class="img-thumbnail" style="width:150px" asp-append-version="true" /> </a>
+
+                            <br />
+                            <p>Description: @product.Description</p>
+                            <br />
+                            <input class="btn-primary" asp-page-handler="AddToCart" asp-route-id="@product.Id" type="submit" value="Add to cart!" />
+
+                        </div>
+                    </div>
+
+                }
+
+            }
+
+        </div>
+    </div>
+</form>
+
+
+
+<form method="post">
+    <div class="container">
+        <div class="row">
+            @if (Model.ShowMatchedProducts != null && Model.ShowMatchedProducts.Any())
+            {
+                @foreach (var product in Model.ShowMatchedProducts)
+                {
+                    <div class="col-md-4">
+
+                        <div class="card">
+                            <h1>
+                                @product.Title
+                            </h1>
+                            <h3>Price: @product.Price SEK</h3>
+                            <h3>Category : @product.Category</h3>
+                            <a asp-page="ProductOverview" asp-route-id="@product.Id"><img src="~/images/@product.Image" class="img-thumbnail" style="width:150px" asp-append-version="true" /> </a>
+
+                            <br />
+                            <p>Description: @product.Description</p>
+                            <br />
+                            <input class="btn-primary" asp-page-handler="AddToCart" asp-route-id="@product.Id" type="submit" value="Add to cart!" />
+
+                        </div>
+                    </div>
+
+                }
+
+            }
+
+        </div>
+    </div>
+</form>
 
 

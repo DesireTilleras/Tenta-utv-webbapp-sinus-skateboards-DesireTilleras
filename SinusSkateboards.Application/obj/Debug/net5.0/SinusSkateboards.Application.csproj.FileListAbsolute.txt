@@ -1,0 +1,15 @@
+C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Application\bin\Debug\net5.0\SinusSkateboards.Application.deps.json
+C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Application\bin\Debug\net5.0\SinusSkateboards.Application.dll
+C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Application\bin\Debug\net5.0\ref\SinusSkateboards.Application.dll
+C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Application\bin\Debug\net5.0\SinusSkateboards.Application.pdb
+C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Application\bin\Debug\net5.0\SinusSkateboards.Domain.dll
+C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Application\bin\Debug\net5.0\SinusSkateboards.Domain.pdb
+C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Application\obj\Debug\net5.0\SinusSkateboards.Application.csprojAssemblyReference.cache
+C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Application\obj\Debug\net5.0\SinusSkateboards.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Application\obj\Debug\net5.0\SinusSkateboards.Application.AssemblyInfoInputs.cache
+C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Application\obj\Debug\net5.0\SinusSkateboards.Application.AssemblyInfo.cs
+C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Application\obj\Debug\net5.0\SinusSkateboards.Application.csproj.CoreCompileInputs.cache
+C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Application\obj\Debug\net5.0\SinusSkateboards.Application.csproj.CopyComplete
+C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Application\obj\Debug\net5.0\SinusSkateboards.Application.dll
+C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Application\obj\Debug\net5.0\ref\SinusSkateboards.Application.dll
+C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.Application\obj\Debug\net5.0\SinusSkateboards.Application.pdb

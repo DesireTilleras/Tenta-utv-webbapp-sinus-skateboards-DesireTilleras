@@ -1,5 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using SinusSkateboards.Application
 @inject SignInManager<IdentityUser> SignInManager
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +11,7 @@
     <title>@ViewData["Title"] - SinusSkateboards.UI</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header>
@@ -24,7 +27,9 @@
                 }
                 else
                 {
+                    var count = IndexModel.ProductsAddedToCart.Count();
                     <a asp-page="Login"> Login </a>
+                    <a asp-page="ShoppingCart">Shopping cart @count<i class="fa fa-shopping-cart"> </i></a>
                 }
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"

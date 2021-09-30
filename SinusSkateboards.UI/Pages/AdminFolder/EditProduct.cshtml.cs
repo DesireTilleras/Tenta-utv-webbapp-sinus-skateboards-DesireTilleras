@@ -118,7 +118,7 @@ namespace SinusSkateboards.UI.Pages.AdminFolder
 
                 _context.SaveChanges();
 
-                return RedirectToPage("/AdminFolder/AddProducts");
+                return RedirectToPage("/AdminFolder/ListAllProducts");
 
             }
 
@@ -147,7 +147,7 @@ namespace SinusSkateboards.UI.Pages.AdminFolder
 
             _context.SaveChanges();
 
-            return RedirectToPage("/AdminFolder/AddProducts");
+            return RedirectToPage("/AdminFolder/ListAllProducts");
 
 
 

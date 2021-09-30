@@ -1,0 +1,38 @@
+﻿@page
+@model SinusSkateboards.UI.Pages.ShoppingCartModel
+@{
+}
+
+
+<form method="post">
+    <div class="container">
+        <div class="row">
+            @if (Model.CookieProducts != null && Model.CookieProducts.Any())
+            {
+                @foreach (var product in Model.CookieProducts)
+                {
+                    <div class="col-md-4">
+
+                        <div class="card">
+                            <h1>
+                                @product.Title
+                            </h1>
+                            <h3>Price: @product.Price SEK</h3>
+                            <h3>Category : @product.Category</h3>
+                            <img src="~/images/@product.Image" class="img-thumbnail" style="width:150px" asp-append-version="true" />
+
+                            <br />
+                            <p>Description: @product.Description</p>
+                            <br />
+                            <input class="btn-primary" asp-page-handler="Delete" asp-route-id="@product.Id" type="submit" value="Delete from cart" />
+
+                        </div>
+                    </div>
+
+                }
+
+            }
+
+        </div>
+    </div>
+</form>

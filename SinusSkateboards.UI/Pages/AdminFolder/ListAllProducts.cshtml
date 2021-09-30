@@ -10,30 +10,154 @@
             {
                 @foreach (var product in Model.ListOfAllProducts)
                 {
-                    <div class="col-md-4">
-                        <div class="card">
-                            <h2 style="color:cadetblue">
-                                Title: @product.Title
+                    @if (product.Category == Domain.Categories.skateboard)
+                    {
+                        <div class="col-md-4">
 
-                            </h2>
+                            <div class="card">
+                                <h1>
+                                    @product.Title
+                                </h1>
+                                <h3>Price: @product.Price SEK</h3>
+                                <h3>Category : @product.Category</h3>
+                                <img src="~/images/@product.Image" class="img-thumbnail" style="width:150px" asp-append-version="true" />
 
-                            <h3>Price: @product.Price</h3>
-                            <h3>Category : @product.Category</h3>
-                            <img src="~/images/@product.Image" class="img-thumbnail" style="width:100px" asp-append-version="true" />
-
-                            <br />
-                            <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
-                            <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                <br />
+                                <p>Description: @product.Description</p>
+                                <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
+                                <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                            </div>
                         </div>
-
-                    </div>
+                    }
                 }
+
             }
 
         </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            @if (Model.ListOfAllProducts != null && Model.ListOfAllProducts.Any())
+            {
+                @foreach (var product in Model.ListOfAllProducts)
+                {
+                    @if (product.Category == Domain.Categories.cap)
+                    {
+                        <div class="col-md-4">
+                            <br />
+                            <div class="card">
+                                <h1>
+                                    @product.Title
+                                </h1>
+                                <h3>Price: @product.Price SEK</h3>
+                                <h3>Category : @product.Category</h3>
+                                <img src="~/images/@product.Image" class="img-thumbnail" style="width:150px" asp-append-version="true" />
 
+                                <br />
+                                <p>Description: @product.Description</p>
+                                <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
+                                <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                            </div>
+                        </div>
+                    }
+                }
 
-        <a class="btn btn-dark" asp-page="/Index"> Go back to front page</a>
+            }
 
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            @if (Model.ListOfAllProducts != null && Model.ListOfAllProducts.Any())
+            {
+                @foreach (var product in Model.ListOfAllProducts)
+                {
+                    @if (product.Category == Domain.Categories.hoodie)
+                    {
+                        <div class="col-md-4">
+                            <br />
+                            <div class="card">
+                                <h1>
+                                    @product.Title
+                                </h1>
+                                <h3>Price: @product.Price SEK</h3>
+                                <h3>Category : @product.Category</h3>
+                                <img src="~/images/@product.Image" class="img-thumbnail" style="width:150px" asp-append-version="true" />
+
+                                <br />
+                                <p>Description: @product.Description</p>
+                                <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
+                                <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                            </div>
+                        </div>
+                    }
+                }
+
+            }
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            @if (Model.ListOfAllProducts != null && Model.ListOfAllProducts.Any())
+            {
+                @foreach (var product in Model.ListOfAllProducts)
+                {
+                    @if (product.Category == Domain.Categories.tshirt)
+                    {
+                        <div class="col-md-4">
+                            <br />
+                            <div class="card">
+                                <h1>
+                                    @product.Title
+                                </h1>
+                                <h3>Price: @product.Price SEK</h3>
+                                <h3>Category : @product.Category</h3>
+                                <img src="~/images/@product.Image" class="img-thumbnail" style="width:150px" asp-append-version="true" />
+
+                                <br />
+                                <p>Description: @product.Description</p>
+                                <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
+                                <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                            </div>
+                        </div>
+                    }
+                }
+
+            }
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            @if (Model.ListOfAllProducts != null && Model.ListOfAllProducts.Any())
+            {
+                @foreach (var product in Model.ListOfAllProducts)
+                {
+                    @if (product.Category == Domain.Categories.wheel)
+                    {
+
+                        <div class="col-md-4">
+                            <br />
+                            <div class="card">
+                                <h1>
+                                    @product.Title
+                                </h1>
+                                <h3>Price: @product.Price SEK</h3>
+                                <h3>Category : @product.Category</h3>
+                                <img src="~/images/@product.Image" class="img-thumbnail" style="width:150px" asp-append-version="true" />
+
+                                <br />
+                                <p>Description: @product.Description</p>
+                                <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
+                                <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                            </div>
+                        </div>
+                    }
+                }
+
+            }
+
+        </div>
     </div>
 </body>
