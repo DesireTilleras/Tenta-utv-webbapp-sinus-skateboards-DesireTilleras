@@ -1,0 +1,47 @@
+﻿@page
+@model SinusSkateboards.UI.Pages.AdminFolder.OrderInfoModel
+@{
+}
+
+
+
+<body style="background-image:none">
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h5>Customer details:</h5>
+                <h5>Name: @Model.Order.CustomerModel.Name</h5>
+                <h5>Address: @Model.Order.CustomerModel.Address</h5>
+                <h5>ZipCode: @Model.Order.CustomerModel.ZipCode</h5>
+                <h5>City: @Model.Order.CustomerModel.City</h5>
+                <h5>Phone number: @Model.Order.CustomerModel.PhoneNumber</h5>
+            </div>
+            <div class="col">
+                <h5>Product details:</h5>
+
+                @foreach (var product in Model.Order.Products)
+                {
+                    <h5>Product number : @product.Id</h5>
+                    <h5>Title: @product.Title</h5>
+                    <h5>Color: @product.Color</h5>
+                    <h5>Price: @product.Price</h5>
+                }
+            </div>
+        </div>
+        <div class="row pt-4">
+            <h5>Total amount of products: @Model.AmountOfProducts</h5>
+        </div>
+        <div class="row pt-4">
+            <h5> Total amount sold : @Model.TotalPrice SEK</h5>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    
+</body>

@@ -39,14 +39,13 @@
                 @foreach (var product in Model.MatchedProducts)
                 {
                     <div class="col-md-4">
-
                         <div class="card">
                             <h1>
                                 @product.Title
                             </h1>
                             <h3>Price: @product.Price SEK</h3>
                             <h3>Category : @product.Category</h3>
-                            <a asp-page="ProductOverview" asp-route-id="@product.Id"><img src="~/images/@product.Image" class="img-thumbnail" style="width:150px" asp-append-version="true" /> </a>
+                            <a style="background-color:white" asp-page="ProductOverview" asp-route-id="@product.Id"><img src="~/images/@product.Image" class="img-thumbnail" style="width:150px" asp-append-version="true" /> </a>
 
                             <br />
                             <p>Description: @product.Description</p>

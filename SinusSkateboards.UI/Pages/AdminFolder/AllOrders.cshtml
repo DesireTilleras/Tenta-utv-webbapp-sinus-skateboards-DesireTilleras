@@ -1,0 +1,15 @@
+﻿@page
+@model SinusSkateboards.UI.Pages.AdminFolder.AllOrdersModel
+@{
+}
+
+<body style="background-image:none">
+    @foreach (var item in Model.AllOrders)
+    {
+        <h5>Order number : @item.Id</h5>
+        <h5>Date : @item.Date</h5>
+        <a asp-page="/AdminFolder/OrderInfo" asp-route-id ="@item.Id">Show info</a>
+    }
+</body>
+
+

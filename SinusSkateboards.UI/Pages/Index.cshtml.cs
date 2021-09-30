@@ -39,10 +39,7 @@ namespace SinusSkateboards.UI.Pages
         public void OnGet()
         {
             ListOfAllProducts = _context.Products.Select(x => x).ToList();
-
-            ListOfAllProducts.GroupBy(x => x.Image).Select(x => x.FirstOrDefault()).ToList();
-
-            
+                
             CategoryList = Enum.GetValues(typeof(Categories)).Cast<Categories>().ToList();
         }
 
