@@ -20,6 +20,9 @@ namespace SinusSkateboards.UI.Pages
         [BindProperty]
         public CustomerModel Customer { get; set; } = new CustomerModel();
 
+        [BindProperty]
+        public decimal TotalPrice { get; set; }
+
         public OrderModel Order { get; set; } = new OrderModel();
 
         private readonly AuthDbContext _context;
@@ -31,7 +34,10 @@ namespace SinusSkateboards.UI.Pages
 
         public void OnGet()
         {
-
+            foreach (var product in IndexModel.ProductsAddedToCart)
+            {
+                TotalPrice += product.Price;
+            }
 
         }
         public IActionResult OnPostDelete(int id)

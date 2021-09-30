@@ -6,4 +6,39 @@
 
 <h1>Your order is now on its way!!</h1>
 
+<p>Your order:</p>
+
+
+<form method="post">
+    <div class="container">
+        <div class="row">
+            @if (Model.CookieProducts != null && Model.CookieProducts.Any())
+            {
+                @foreach (var product in Model.CookieProducts)
+                {
+                    <div class="col-md-4">
+
+                        <div class="card">
+                            <h1>
+                                @product.Title
+                            </h1>
+                            <h3>Price: @product.Price SEK</h3>
+                            <h3>Category : @product.Category</h3>
+                            <img src="~/images/@product.Image" class="img-thumbnail" style="width:150px" asp-append-version="true" />
+
+                            <br />
+                            <p>Description: @product.Description</p>
+                            <br />                           
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+        <div class="row">
+            <h4>Total price of @Model.TotalPrice SEK will be withdrawn from your Klarna account</h4>
+        </div>
+    </div>
+</form>
+
 <a asp-page="Index"> Click here to home page</a>
