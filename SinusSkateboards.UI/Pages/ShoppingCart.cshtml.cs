@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
-using SinusSkateboards.Application;
 using SinusSkateboards.Domain;
 using SinusSkateBoards.Data.Database;
 
@@ -107,7 +106,7 @@ namespace SinusSkateboards.UI.Pages
             await _context.SaveChangesAsync();
 
 
-            return RedirectToPage("ConfirmationPage");
+            return RedirectToPage("ConfirmationPage",  new { id = order.Id });
         }
     }
 }

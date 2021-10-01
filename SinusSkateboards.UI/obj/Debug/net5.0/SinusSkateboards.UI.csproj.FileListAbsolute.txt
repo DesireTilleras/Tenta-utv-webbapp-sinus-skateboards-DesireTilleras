@@ -396,8 +396,6 @@ C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.UI
 C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.UI\obj\Debug\net5.0\Razor\Pages\AdminFolder\ListAllProducts.cshtml.g.cs
 C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.UI\obj\Debug\net5.0\Razor\Pages\AdminFolder\DeleteProduct.cshtml.g.cs
 C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.UI\obj\Debug\net5.0\Razor\Pages\AdminFolder\EditProduct.cshtml.g.cs
-C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.UI\bin\Debug\net5.0\SinusSkateboards.Application.dll
-C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.UI\bin\Debug\net5.0\SinusSkateboards.Application.pdb
 C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.UI\obj\Debug\net5.0\Razor\Pages\ShoppingCart.cshtml.g.cs
 C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.UI\obj\Debug\net5.0\Razor\Pages\ProductOverview.cshtml.g.cs
 C:\Users\desir\source\repos\sinus-skateboards-DesireTilleras\SinusSkateboards.UI\obj\Debug\net5.0\Razor\Pages\ConfirmationPage.cshtml.g.cs

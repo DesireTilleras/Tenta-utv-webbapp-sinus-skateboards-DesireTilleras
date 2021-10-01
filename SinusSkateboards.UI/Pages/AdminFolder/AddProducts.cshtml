@@ -11,10 +11,10 @@
 
         <form method="post" enctype="multipart/form-data">
 
-            <input id="title" type="text" asp-for="@Model.Product.Title" placeholder="Title" />
-            <input id="price" type="text" asp-for="@Model.Product.Price" placeholder="Price" />
-            <input id="color" type="text" asp-for="@Model.Product.Color" placeholder="Color" />
-            <input id="description" type="text" asp-for="@Model.Product.Description" placeholder="Description" />
+            <input id="title" type="text" asp-for="@Model.Product.Title" placeholder="Title" required/>
+            <input id="price" type="text" asp-for="@Model.Product.Price" placeholder="Price" required />
+            <input id="color" type="text" asp-for="@Model.Product.Color" placeholder="Color" required />
+            <input id="description" type="text" asp-for="@Model.Product.Description" placeholder="Description" required/>
             <label for="Category">Choose category:</label>
             <select id="Category" asp-for="@Model.Product.Category">
                 <option selected="selected" value=""></option>

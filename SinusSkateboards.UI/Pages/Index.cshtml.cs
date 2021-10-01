@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SinusSkateboards.Application;
+
 
 namespace SinusSkateboards.UI.Pages
 {
@@ -21,7 +21,7 @@ namespace SinusSkateboards.UI.Pages
         [BindProperty]
         public static List<ProductModel> ListOfAllProducts { get; set; }
 
-        public static List<ProductModel> ProductsAddedToCart { get; set; } = CartListClass.ListOfCartItems;
+        public static List<ProductModel> ProductsAddedToCart { get; set; } = new List<ProductModel>();
 
         [BindProperty]
         public List<ProductModel> MatchedProducts { get; set; } = new List<ProductModel>();

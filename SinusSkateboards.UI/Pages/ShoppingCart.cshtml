@@ -10,59 +10,62 @@
     <form method="post">
         <div class="container">
             <div class="row">
-                @if (Model.CookieProducts != null && Model.CookieProducts.Any())
-                {
-                    @foreach (var product in Model.CookieProducts)
+                <div class="col-7">
+                    @if (Model.CookieProducts != null && Model.CookieProducts.Any())
                     {
-                        <div class="row">
-                            <div class="col">
-                                <img src="~/images/@product.Image" class="img-thumbnail" style="width:100px" asp-append-version="true" />
+                        @foreach (var product in Model.CookieProducts)
+                        {
+                            <div class="row">
+                                <div class="col">
+                                    <img src="~/images/@product.Image" class="img-thumbnail" style="width:100px" asp-append-version="true" />
+                                </div>
+                                <div class="col">
+                                    <h5>
+                                        @product.Title
+                                    </h5>
+                                </div>
+                                <div class="col">
+                                    <h5>Price: @product.Price SEK</h5>
+                                </div>
+                                <div class="col">
+                                    <h5>Category : @product.Category</h5>
+                                </div>
                             </div>
-                            <div class="col">
-                                <h5>
-                                    @product.Title
-                                </h5>
+                            <div class="row">
+                                <div class="col">
+                                    <p>Description: @product.Description</p>
+                                </div>
                             </div>
-                            <div class="col">
-                                <h5>Price: @product.Price SEK</h5>
+                            <div class="row text-center">
+                                <div class="col-2">
+                                    <input class="btn-primary" asp-page-handler="Delete" asp-route-id="@product.Id" type="submit" value="Delete from cart" />
+                                </div>
                             </div>
-                            <div class="col">
-                                <h5>Category : @product.Category</h5>
-                            </div>
-                            <div class="col">
-                                <p>Description: @product.Description</p>
-                            </div>
-                            <div class="col">
-                                <input class="btn-primary" asp-page-handler="Delete" asp-route-id="@product.Id" type="submit" value="Delete from cart" />
-                            </div>                            
-                        </div>
+                        }
                     }
-                }
+                    <div class="row">
+                        <h4>Total price of @Model.TotalPrice SEK </h4>
+                    </div>
+                </div>
 
+                <div class="col">
+                    <div class="wrapper fadeInDown">
+                        <div id="formContent">
+                            <!-- Tabs Titles -->
+                            <h2 class="active"> Enter customer information </h2>
+
+                            <input id="Name" type="text" asp-for="@Model.Customer.Name" placeholder="Name" required />
+                            <input id="Address" type="text" asp-for="@Model.Customer.Address" placeholder="Address" required />
+                            <input id="ZipCode" type="text" asp-for="@Model.Customer.ZipCode" placeholder="ZipCode" required />
+                            <input id="City" type="text" asp-for="@Model.Customer.City" placeholder="City" required />
+                            <input id="PhoneNumber" type="text" asp-for="@Model.Customer.PhoneNumber" placeholder="Phone number" required />
+                            <br />
+                            <button class="btn-primary" asp-page-handler="CheckOut"> Save and confirm order </button><br />
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                <h4>Total price of @Model.TotalPrice SEK </h4>
-            </div>
-
-
         </div>
     </form>
 
-    <div class="wrapper fadeInDown">
-        <div id="formContent">
-            <!-- Tabs Titles -->
-            <h2 class="active"> Enter customer information </h2>
-
-            <form method="post" enctype="multipart/form-data">
-
-                <input id="Name" type="text" asp-for="@Model.Customer.Name" placeholder="Name" required/>
-                <input id="Address" type="text" asp-for="@Model.Customer.Address" placeholder="Address" required />
-                <input id="ZipCode" type="text" asp-for="@Model.Customer.ZipCode" placeholder="ZipCode" required/>
-                <input id="City" type="text" asp-for="@Model.Customer.City" placeholder="City" required/>
-                <input id="PhoneNumber" type="text" asp-for="@Model.Customer.PhoneNumber" placeholder="Phone number" required/>
-                <br />
-                <button class="btn-primary" asp-page-handler="CheckOut"> Save and confirm order </button><br />
-            </form>
-        </div>
-    </div>
 </body>

@@ -3,42 +3,41 @@
 @{
 }
 
+<body style="background-image:none">
 
-<h1>Your order is now on its way!!</h1>
+    <h1>Your order is now on its way!!</h1>
 
-<p>Your order:</p>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h5>Customer details:</h5>
+                    <h5>Name: @Model.Order.CustomerModel.Name</h5>
+                    <h5>Address: @Model.Order.CustomerModel.Address</h5>
+                    <h5>ZipCode: @Model.Order.CustomerModel.ZipCode</h5>
+                    <h5>City: @Model.Order.CustomerModel.City</h5>
+                    <h5>Phone number: @Model.Order.CustomerModel.PhoneNumber</h5>
+                </div>
+                <div class="col">
+                    <h5>Product details:</h5>
 
-
-<form method="post">
-    <div class="container">
-        <div class="row">
-            @if (Model.CookieProducts != null && Model.CookieProducts.Any())
-            {
-                @foreach (var product in Model.CookieProducts)
-                {
-                    <div class="col-md-4">
-
-                        <div class="card">
-                            <h1>
-                                @product.Title
-                            </h1>
-                            <h3>Price: @product.Price SEK</h3>
-                            <h3>Category : @product.Category</h3>
-                            <img src="~/images/@product.Image" class="img-thumbnail" style="width:150px" asp-append-version="true" />
-
-                            <br />
-                            <p>Description: @product.Description</p>
-                            <br />                           
-                        </div>
-                    </div>
-                }
-            }
-
+                    @foreach (var product in Model.Order.Products)
+                    {
+                        <img src="~/images/@product.Image" style="width:50px"/>
+                        <h5>Product number : @product.Id</h5>
+                        <h5>Title: @product.Title</h5>
+                        <h5>Color: @product.Color</h5>
+                        <h5>Price: @product.Price</h5>
+                    }
+                </div>
+            </div>
         </div>
         <div class="row">
             <h4>Total price of @Model.TotalPrice SEK will be withdrawn from your Klarna account</h4>
         </div>
-    </div>
-</form>
 
-<a asp-page="Index"> Click here to home page</a>
+        <a asp-page="Index"> Click here for front page </a>
+
+
+    </body>
+
+

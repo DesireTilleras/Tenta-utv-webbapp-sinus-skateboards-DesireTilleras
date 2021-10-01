@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SinusSkateboards.Application\SinusSkateboards.Application.csproj" />
     <ProjectReference Include="..\SinusSkateBoards.Data\SinusSkateBoards.Data.csproj" />
   </ItemGroup>
 
