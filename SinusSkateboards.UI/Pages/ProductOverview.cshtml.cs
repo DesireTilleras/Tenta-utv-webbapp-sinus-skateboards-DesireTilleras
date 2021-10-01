@@ -39,7 +39,7 @@ namespace SinusSkateboards.UI.Pages
             ListAlsoInColors.Remove(Product);
 
         }
-        public void OnPostAddToCart(int id)
+        public IActionResult OnPostAddToCart(int id)
         {
 
             Product = ListOfAllProducts.Where(x => x.Id == id).FirstOrDefault();
@@ -57,7 +57,7 @@ namespace SinusSkateboards.UI.Pages
             stringAddedToCart = JsonConvert.SerializeObject(IndexModel.ProductsAddedToCart);
             HttpContext.Session.SetString("AddToCart", stringAddedToCart);
 
-            RedirectToPage();
+            return RedirectToPage("ProductOverview", new {id = Product.Id});
         }
     }
 }

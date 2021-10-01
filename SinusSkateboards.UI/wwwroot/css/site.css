@@ -2,14 +2,20 @@
 for details on configuring this project to bundle and minify static web assets. */
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 /* BASIC */
+
+
 html {
     background-color: white;
 }
 
 body {
-    font-family: "Poppins", sans-serif;
-    height: 100vh;
-    background-image: url(/images/BackgroundPic/GettyImages-946920306-d90d5ddbd62b4e72852fe5dc595d59bd.jpg);
+
+    background-position-x: center;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    min-height:1000px;
 }
 
 a {
@@ -470,21 +476,20 @@ form.example input[type=text] {
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
-    float: left;
+    float:none;
     width: 80%;
     background: #f1f1f1;
 }
 
-/* Style the submit button */
 form.example button {
-    float: left;
+    float:none;
     width: 20%;
     padding: 10px;
     background: #2196F3;
     color: white;
     font-size: 17px;
     border: 1px solid grey;
-    border-left: none; /* Prevent double borders */
+    border-left: none; 
     cursor: pointer;
 }
 
