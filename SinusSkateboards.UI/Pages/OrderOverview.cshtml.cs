@@ -2,17 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 using SinusSkateboards.Domain;
 using SinusSkateBoards.Data.Database;
 
 namespace SinusSkateboards.UI.Pages
 {
-    public class ConfirmationPageModel : PageModel
+    public class OrderOverviewModel : PageModel
     {
 
         [BindProperty]
@@ -27,7 +25,7 @@ namespace SinusSkateboards.UI.Pages
 
         public OrderModel Order { get; set; }
 
-        public ConfirmationPageModel(AuthDbContext context)
+        public OrderOverviewModel(AuthDbContext context)
         {
             _context = context;
         }
@@ -43,24 +41,6 @@ namespace SinusSkateboards.UI.Pages
             Order = _context.Orders.Where(x => x.Id == id).Include(c => c.CustomerModel).Include(p => p.Products).FirstOrDefault();
 
 
-
-            string stringCartItems = HttpContext.Session.GetString("AddToCart");
-
-            List<ProductModel> productsInCart = new List<ProductModel>();
-
-            if (!String.IsNullOrEmpty(stringCartItems))
-            {
-                productsInCart = JsonConvert.DeserializeObject<List<ProductModel>>(stringCartItems);
-            }
-            productsInCart.Clear();
-            IndexModel.ProductsAddedToCart.Clear();
-
-
-            stringCartItems = JsonConvert.SerializeObject(productsInCart);
-            HttpContext.Session.SetString("AddToCart", stringCartItems);
-
-
         }
-
     }
 }

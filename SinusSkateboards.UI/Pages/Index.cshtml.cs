@@ -16,7 +16,7 @@ namespace SinusSkateboards.UI.Pages
     public class IndexModel : PageModel
     {
         [BindProperty]
-        public List<Categories> CategoryList { get; set; } = Enum.GetValues(typeof(Categories)).Cast<Categories>().ToList();
+        public static List<Categories> CategoryList { get; set; } = Enum.GetValues(typeof(Categories)).Cast<Categories>().ToList();
 
         [BindProperty]
         public static List<ProductModel> ListOfAllProducts { get; set; }
@@ -82,6 +82,11 @@ namespace SinusSkateboards.UI.Pages
             return Page();
 
 
+        }
+
+        public void OnPostListAll()
+        {
+            MatchedProducts = ListOfAllProducts.GroupBy(x => x.Image).Select(x => x.FirstOrDefault()).ToList();
         }
         public void OnPostAddToCart(int id)
         {

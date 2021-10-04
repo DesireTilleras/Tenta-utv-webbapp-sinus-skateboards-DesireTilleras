@@ -106,7 +106,7 @@ namespace SinusSkateboards.UI.Pages
             await _context.SaveChangesAsync();
 
 
-            return RedirectToPage("ConfirmationPage",  new { id = order.Id });
+            return RedirectToPage("OrderOverview",  new { id = order.Id });
         }
     }
 }
