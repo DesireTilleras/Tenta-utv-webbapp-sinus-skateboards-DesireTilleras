@@ -25,14 +25,19 @@ namespace SinusSkateboards.UI.Pages
 
         [BindProperty]
 
-        public OrderModel Order { get; set; }
+        public OrderModel Order { get; set; } = new OrderModel();
+
+
+        [BindProperty]
+        public CustomerModel Customer { get; set; }
 
         public ConfirmationPageModel(AuthDbContext context)
         {
             _context = context;
         }
-        public void OnGet(int id)
+        public async Task OnGet(int id)
         {
+            Customer = _context.Customers.Where(c => c.Id == id).FirstOrDefault();
 
             foreach (var product in IndexModel.ProductsAddedToCart)
             {
@@ -40,7 +45,32 @@ namespace SinusSkateboards.UI.Pages
 
             }
 
-            Order = _context.Orders.Where(x => x.Id == id).Include(c => c.CustomerModel).Include(p => p.Products).FirstOrDefault();
+            Order.CustomerModelId = Customer.Id;
+            Order.Date = DateTime.Now;
+
+            await _context.Orders.AddAsync(Order);
+
+            await _context.SaveChangesAsync();
+
+            var order = _context.Orders.Where(x => x.CustomerModelId == Customer.Id).FirstOrDefault();
+
+            foreach (var product in IndexModel.ProductsAddedToCart)
+            {
+                var newProduct = new ProductModel();
+                newProduct.Title = product.Title;
+                newProduct.Color = product.Color;
+                newProduct.Price = product.Price;
+                newProduct.Image = product.Image;
+                newProduct.Description = product.Description;
+                newProduct.Category = product.Category;
+                newProduct.OrderModelId = order.Id;
+                await _context.Products.AddAsync(newProduct);
+            }
+
+
+            await _context.SaveChangesAsync();
+
+            Order = _context.Orders.Where(x => x.Id == order.Id).Include(c => c.CustomerModel).Include(p => p.Products).FirstOrDefault();
 
 
 

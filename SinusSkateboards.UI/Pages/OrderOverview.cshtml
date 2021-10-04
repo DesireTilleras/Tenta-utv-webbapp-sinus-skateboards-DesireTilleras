@@ -11,16 +11,16 @@
         <div class="row">
             <div class="col">
                 <h5>Customer details:</h5>
-                <h5>Name: @Model.Order.CustomerModel.Name</h5>
-                <h5>Address: @Model.Order.CustomerModel.Address</h5>
-                <h5>ZipCode: @Model.Order.CustomerModel.ZipCode</h5>
-                <h5>City: @Model.Order.CustomerModel.City</h5>
-                <h5>Phone number: @Model.Order.CustomerModel.PhoneNumber</h5>
+                <h5>Name: @Model.Customer.Name</h5>
+                <h5>Address: @Model.Customer.Address</h5>
+                <h5>ZipCode: @Model.Customer.ZipCode</h5>
+                <h5>City: @Model.Customer.City</h5>
+                <h5>Phone number: @Model.Customer.PhoneNumber</h5>
             </div>
             <div class="col">
                 <h5>Product details:</h5>
 
-                @foreach (var product in Model.Order.Products)
+                @foreach (var product in IndexModel.ProductsAddedToCart)
                 {
                     <img src="~/images/@product.Image" style="width:50px" />
                     <h5>Product number : @product.Id</h5>
@@ -35,7 +35,7 @@
         <h4>Total price of @Model.TotalPrice SEK </h4>
     </div>
 
-    <a asp-page="ConfirmationPage" asp-route-id="@Model.Order.Id"> Click here to confirm order</a>
+    <a asp-page="ConfirmationPage" asp-route-id="@Model.Customer.Id"> Click here to confirm order</a>
 
 
 </body>

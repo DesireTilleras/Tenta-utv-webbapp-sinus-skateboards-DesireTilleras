@@ -39,6 +39,18 @@ namespace SinusSkateboards.UI.Pages
             }
 
         }
+        public async Task<IActionResult> OnPostNewCustomer()
+        {
+
+            await _context.Customers.AddAsync(Customer);
+
+            await _context.SaveChangesAsync();
+
+            Customer =_context.Customers.Where(n => n.PhoneNumber == Customer.PhoneNumber).FirstOrDefault();
+
+             return RedirectToPage("OrderOverview", new { id = Customer.Id });
+
+        }
         public IActionResult OnPostDelete(int id)
         {
 
@@ -72,41 +84,6 @@ namespace SinusSkateboards.UI.Pages
             }
 
         }
-        public async Task<IActionResult> OnPostCheckOut()
-        {
-            await _context.Customers.AddAsync(Customer);
 
-            await _context.SaveChangesAsync();
-
-            var customer = _context.Customers.Where(x => x.Id == Customer.Id).FirstOrDefault();
-
-            Order.CustomerModelId = customer.Id;
-            Order.Date = DateTime.Now;
-
-            await _context.Orders.AddAsync(Order);
-
-            await _context.SaveChangesAsync();
-
-            var order = _context.Orders.Where(x => x.CustomerModelId == customer.Id).FirstOrDefault();
-
-            foreach (var product in IndexModel.ProductsAddedToCart)
-            {
-                var newProduct = new ProductModel();
-                newProduct.Title = product.Title;
-                newProduct.Color = product.Color;
-                newProduct.Price = product.Price;
-                newProduct.Image = product.Image;
-                newProduct.Description = product.Description;
-                newProduct.Category = product.Category;
-                newProduct.OrderModelId = order.Id;
-                await _context.Products.AddAsync(newProduct);
-            }
-
-
-            await _context.SaveChangesAsync();
-
-
-            return RedirectToPage("OrderOverview",  new { id = order.Id });
-        }
     }
 }

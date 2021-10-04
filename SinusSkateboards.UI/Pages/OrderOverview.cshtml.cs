@@ -22,8 +22,7 @@ namespace SinusSkateboards.UI.Pages
         private readonly AuthDbContext _context;
 
         [BindProperty]
-
-        public OrderModel Order { get; set; }
+        public CustomerModel Customer { get; set; } 
 
         public OrderOverviewModel(AuthDbContext context)
         {
@@ -32,14 +31,14 @@ namespace SinusSkateboards.UI.Pages
         public void OnGet(int id)
         {
 
+            Customer = _context.Customers.Where(x => x.Id == id).FirstOrDefault();
+
+
             foreach (var product in IndexModel.ProductsAddedToCart)
             {
                 TotalPrice += product.Price;
 
             }
-
-            Order = _context.Orders.Where(x => x.Id == id).Include(c => c.CustomerModel).Include(p => p.Products).FirstOrDefault();
-
 
         }
     }

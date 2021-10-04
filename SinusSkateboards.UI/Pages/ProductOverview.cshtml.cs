@@ -39,6 +39,7 @@ namespace SinusSkateboards.UI.Pages
             ListAlsoInColors.Remove(Product);
 
         }
+
         public IActionResult OnPostAddToCart(int id)
         {
 
