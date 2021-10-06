@@ -26,7 +26,13 @@ namespace SinusSkateboards.UI.Pages.AdminFolder
 
         public IActionResult OnPostDelete()
         {
-            _context.Products.Remove(Product);
+            var products = _context.Products.Where(x => x.ArticleNumber == Product.ArticleNumber).ToList();
+
+            foreach (var product in products)
+            {
+                _context.Products.Remove(product);
+            }
+
             _context.SaveChanges();
 
             return RedirectToPage("/Index");

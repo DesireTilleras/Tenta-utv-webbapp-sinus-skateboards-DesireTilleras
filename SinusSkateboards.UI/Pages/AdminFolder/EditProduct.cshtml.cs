@@ -38,6 +38,9 @@ namespace SinusSkateboards.UI.Pages.AdminFolder
         public string NewDescription { get; set; }
 
         [BindProperty]
+        public string NewArticleNumber { get; set; }
+
+        [BindProperty]
         public Categories NewCategory { get; set; }
 
         [BindProperty]
@@ -94,6 +97,10 @@ namespace SinusSkateboards.UI.Pages.AdminFolder
                 {
                     _context.Products.Where(x => x.Id == Product.Id).FirstOrDefault().Title = NewTitle;
                 }
+                if (NewArticleNumber != null)
+                {
+                    _context.Products.Where(x => x.Id == Product.Id).FirstOrDefault().ArticleNumber = NewArticleNumber;
+                }
                 if (NewPrice != 0)
                 {
                     _context.Products.Where(x => x.Id == Product.Id).FirstOrDefault().Price = NewPrice;
@@ -126,6 +133,10 @@ namespace SinusSkateboards.UI.Pages.AdminFolder
             if (NewTitle != null)
             {
                 _context.Products.Where(x => x.Id == Product.Id).FirstOrDefault().Title = NewTitle;
+            }
+            if (NewArticleNumber != null)
+            {
+                _context.Products.Where(x => x.Id == Product.Id).FirstOrDefault().ArticleNumber = NewArticleNumber;
             }
             if (NewPrice != 0)
             {

@@ -3,6 +3,33 @@
 @{
 }
 
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<style>
+    .btn-primary {
+        background-color: #56baed;
+        border: none;
+        color: white;
+        padding: 7px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 10px;
+        -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+        margin: 5px 20px 40px 20px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+</style>
+
 <body style="background-image:none">
     <div class="container">
         <div class="row">
@@ -12,14 +39,14 @@
                 {
                     @if (product.Category == Domain.Categories.skateboard)
                     {
-                        <div class="col-md-7">
+                        <div class="col-md-6">
                             <br />
                             <div class="card">
-                                <div class="row">
-                                    <div class="col-1">
+                                <div class="row pt-1">
+                                    <div class="col-2">
                                         <img src="~/images/@product.Image" style="width:50px" />
                                     </div>
-                                    <div class="col">
+                                    <div class="col-6">
                                         <p>Product number : @product.ArticleNumber</p>
                                         <p>Title: @product.Title</p>
                                         <p>Category: @product.Category </p>
@@ -27,9 +54,13 @@
                                         <p>Price: @product.Price</p>
                                         <p>Description: @product.Description</p>
                                     </div>
-                                    <div class="col">
-                                        <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
-                                        <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                    <div class="col" style="margin-top:40px">
+                                        <div class="row justify-content-center">
+                                            <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id"><i class="fa fa-trash-o fa-lg"></i>Delete</a>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -51,14 +82,14 @@
                 {
                     @if (product.Category == Domain.Categories.cap)
                     {
-                        <div class="col-md-7">
+                        <div class="col-md-6">
                             <br />
                             <div class="card">
-                                <div class="row">
-                                    <div class="col-1">
+                                <div class="row pt-1">
+                                    <div class="col-2">
                                         <img src="~/images/@product.Image" style="width:50px" />
                                     </div>
-                                    <div class="col">
+                                    <div class="col-6">
                                         <p>Product number : @product.ArticleNumber</p>
                                         <p>Title: @product.Title</p>
                                         <p>Category: @product.Category </p>
@@ -66,9 +97,13 @@
                                         <p>Price: @product.Price</p>
                                         <p>Description: @product.Description</p>
                                     </div>
-                                    <div class="col">
-                                        <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
-                                        <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                    <div class="col" style="margin-top:40px">
+                                        <div class="row justify-content-center">
+                                            <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id"><i class="fa fa-trash-o fa-lg"></i>Delete</a>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -90,14 +125,14 @@
                 {
                     @if (product.Category == Domain.Categories.hoodie)
                     {
-                        <div class="col-md-7">
+                        <div class="col-md-6">
                             <br />
                             <div class="card">
-                                <div class="row">
-                                    <div class="col-1">
+                                <div class="row pt-1">
+                                    <div class="col-2">
                                         <img src="~/images/@product.Image" style="width:50px" />
                                     </div>
-                                    <div class="col">
+                                    <div class="col-6">
                                         <p>Product number : @product.ArticleNumber</p>
                                         <p>Title: @product.Title</p>
                                         <p>Category: @product.Category </p>
@@ -105,9 +140,13 @@
                                         <p>Price: @product.Price</p>
                                         <p>Description: @product.Description</p>
                                     </div>
-                                    <div class="col">
-                                        <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
-                                        <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                    <div class="col" style="margin-top:40px">
+                                        <div class="row justify-content-center">
+                                            <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id"><i class="fa fa-trash-o fa-lg"></i>Delete</a>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -129,14 +168,14 @@
                 {
                     @if (product.Category == Domain.Categories.tshirt)
                     {
-                        <div class="col-md-7">
+                        <div class="col-md-6">
                             <br />
                             <div class="card">
-                                <div class="row">
-                                    <div class="col-1">
+                                <div class="row pt-1">
+                                    <div class="col-2">
                                         <img src="~/images/@product.Image" style="width:50px" />
                                     </div>
-                                    <div class="col">
+                                    <div class="col-6">
                                         <p>Product number : @product.ArticleNumber</p>
                                         <p>Title: @product.Title</p>
                                         <p>Category: @product.Category </p>
@@ -144,9 +183,13 @@
                                         <p>Price: @product.Price</p>
                                         <p>Description: @product.Description</p>
                                     </div>
-                                    <div class="col">
-                                        <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
-                                        <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                    <div class="col" style="margin-top:40px">
+                                        <div class="row justify-content-center">
+                                            <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id"><i class="fa fa-trash-o fa-lg"></i>Delete</a>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -172,14 +215,14 @@
                     @if (product.Category == Domain.Categories.wheel)
                     {
 
-                        <div class="col-md-7">
+                        <div class="col-md-6">
                             <br />
                             <div class="card">
-                                <div class="row">
-                                    <div class="col-1">
+                                <div class="row pt-1">
+                                    <div class="col-2">
                                         <img src="~/images/@product.Image" style="width:50px" />
                                     </div>
-                                    <div class="col">
+                                    <div class="col-6">
                                         <p>Product number : @product.ArticleNumber</p>
                                         <p>Title: @product.Title</p>
                                         <p>Category: @product.Category </p>
@@ -187,9 +230,13 @@
                                         <p>Price: @product.Price</p>
                                         <p>Description: @product.Description</p>
                                     </div>
-                                    <div class="col">
-                                        <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
-                                        <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                    <div class="col" style="margin-top:40px">
+                                        <div class="row justify-content-center">
+                                            <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id"><i class="fa fa-trash-o fa-lg"></i>Delete</a>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

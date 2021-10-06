@@ -18,6 +18,9 @@
             <h2>Current title: @Model.Product.Title</h2>
             <input hidden asp-for="@Model.Product.Title" />
             <input id="title" type="text" asp-for="@Model.NewTitle" placeholder="New Title" />
+            <h2>Current article number: @Model.Product.ArticleNumber</h2>
+            <input hidden asp-for="@Model.Product.ArticleNumber" />
+            <input id="title" type="text" asp-for="@Model.NewArticleNumber" placeholder="New article number" />
             <h2>Current price: @Model.Product.Price SEK</h2>
             <input hidden asp-for="@Model.Product.Price" />
             <input id="price" type="text" asp-for="@Model.NewPrice" placeholder="New Price" />
@@ -29,6 +32,7 @@
             <input hidden asp-for="@Model.Product.Description" />
             <input id="description" type="text" asp-for="@Model.NewDescription" placeholder="New Description" />
             <h2>Current category: @Model.Product.Category</h2>
+            <br />
             <label for="Category">Choose new category:</label>
             <br />
             <input hidden asp-for="@Model.Product.Category" />
