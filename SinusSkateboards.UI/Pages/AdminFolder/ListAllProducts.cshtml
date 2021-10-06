@@ -12,21 +12,29 @@
                 {
                     @if (product.Category == Domain.Categories.skateboard)
                     {
-                        <div class="col-md-4">
-
+                        <div class="col-md-7">
+                            <br />
                             <div class="card">
-                                <h1>
-                                    @product.Title
-                                </h1>
-                                <h3>Price: @product.Price SEK</h3>
-                                <h3>Category : @product.Category</h3>
-                                <img src="~/images/@product.Image" class="img-thumbnail" style="width:150px" asp-append-version="true" />
-
-                                <br />
-                                <p>Description: @product.Description</p>
-                                <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
-                                <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                <div class="row">
+                                    <div class="col-1">
+                                        <img src="~/images/@product.Image" style="width:50px" />
+                                    </div>
+                                    <div class="col">
+                                        <p>Product number : @product.ArticleNumber</p>
+                                        <p>Title: @product.Title</p>
+                                        <p>Category: @product.Category </p>
+                                        <p>Color: @product.Color</p>
+                                        <p>Price: @product.Price</p>
+                                        <p>Description: @product.Description</p>
+                                    </div>
+                                    <div class="col">
+                                        <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
+                                        <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                    </div>
+                                </div>
                             </div>
+                            <br />
+
                         </div>
                     }
                 }
@@ -43,21 +51,29 @@
                 {
                     @if (product.Category == Domain.Categories.cap)
                     {
-                        <div class="col-md-4">
+                        <div class="col-md-7">
                             <br />
                             <div class="card">
-                                <h1>
-                                    @product.Title
-                                </h1>
-                                <h3>Price: @product.Price SEK</h3>
-                                <h3>Category : @product.Category</h3>
-                                <img src="~/images/@product.Image" class="img-thumbnail" style="width:150px" asp-append-version="true" />
-
-                                <br />
-                                <p>Description: @product.Description</p>
-                                <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
-                                <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                <div class="row">
+                                    <div class="col-1">
+                                        <img src="~/images/@product.Image" style="width:50px" />
+                                    </div>
+                                    <div class="col">
+                                        <p>Product number : @product.ArticleNumber</p>
+                                        <p>Title: @product.Title</p>
+                                        <p>Category: @product.Category </p>
+                                        <p>Color: @product.Color</p>
+                                        <p>Price: @product.Price</p>
+                                        <p>Description: @product.Description</p>
+                                    </div>
+                                    <div class="col">
+                                        <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
+                                        <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                    </div>
+                                </div>
                             </div>
+                            <br />
+
                         </div>
                     }
                 }
@@ -74,21 +90,29 @@
                 {
                     @if (product.Category == Domain.Categories.hoodie)
                     {
-                        <div class="col-md-4">
+                        <div class="col-md-7">
                             <br />
                             <div class="card">
-                                <h1>
-                                    @product.Title
-                                </h1>
-                                <h3>Price: @product.Price SEK</h3>
-                                <h3>Category : @product.Category</h3>
-                                <img src="~/images/@product.Image" class="img-thumbnail" style="width:150px" asp-append-version="true" />
-
-                                <br />
-                                <p>Description: @product.Description</p>
-                                <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
-                                <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                <div class="row">
+                                    <div class="col-1">
+                                        <img src="~/images/@product.Image" style="width:50px" />
+                                    </div>
+                                    <div class="col">
+                                        <p>Product number : @product.ArticleNumber</p>
+                                        <p>Title: @product.Title</p>
+                                        <p>Category: @product.Category </p>
+                                        <p>Color: @product.Color</p>
+                                        <p>Price: @product.Price</p>
+                                        <p>Description: @product.Description</p>
+                                    </div>
+                                    <div class="col">
+                                        <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
+                                        <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                    </div>
+                                </div>
                             </div>
+                            <br />
+
                         </div>
                     }
                 }
@@ -105,21 +129,29 @@
                 {
                     @if (product.Category == Domain.Categories.tshirt)
                     {
-                        <div class="col-md-4">
+                        <div class="col-md-7">
                             <br />
                             <div class="card">
-                                <h1>
-                                    @product.Title
-                                </h1>
-                                <h3>Price: @product.Price SEK</h3>
-                                <h3>Category : @product.Category</h3>
-                                <img src="~/images/@product.Image" class="img-thumbnail" style="width:150px" asp-append-version="true" />
-
-                                <br />
-                                <p>Description: @product.Description</p>
-                                <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
-                                <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                <div class="row">
+                                    <div class="col-1">
+                                        <img src="~/images/@product.Image" style="width:50px" />
+                                    </div>
+                                    <div class="col">
+                                        <p>Product number : @product.ArticleNumber</p>
+                                        <p>Title: @product.Title</p>
+                                        <p>Category: @product.Category </p>
+                                        <p>Color: @product.Color</p>
+                                        <p>Price: @product.Price</p>
+                                        <p>Description: @product.Description</p>
+                                    </div>
+                                    <div class="col">
+                                        <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
+                                        <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                    </div>
+                                </div>
                             </div>
+                            <br />
+
                         </div>
                     }
                 }
@@ -128,6 +160,9 @@
 
         </div>
     </div>
+
+
+
     <div class="container">
         <div class="row">
             @if (Model.ListOfAllProducts != null && Model.ListOfAllProducts.Any())
@@ -137,21 +172,29 @@
                     @if (product.Category == Domain.Categories.wheel)
                     {
 
-                        <div class="col-md-4">
+                        <div class="col-md-7">
                             <br />
                             <div class="card">
-                                <h1>
-                                    @product.Title
-                                </h1>
-                                <h3>Price: @product.Price SEK</h3>
-                                <h3>Category : @product.Category</h3>
-                                <img src="~/images/@product.Image" class="img-thumbnail" style="width:150px" asp-append-version="true" />
-
-                                <br />
-                                <p>Description: @product.Description</p>
-                                <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
-                                <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                <div class="row">
+                                    <div class="col-1">
+                                        <img src="~/images/@product.Image" style="width:50px" />
+                                    </div>
+                                    <div class="col">
+                                        <p>Product number : @product.ArticleNumber</p>
+                                        <p>Title: @product.Title</p>
+                                        <p>Category: @product.Category </p>
+                                        <p>Color: @product.Color</p>
+                                        <p>Price: @product.Price</p>
+                                        <p>Description: @product.Description</p>
+                                    </div>
+                                    <div class="col">
+                                        <a class="btn-primary" asp-page="/AdminFolder/DeleteProduct" asp-route-id="@product.Id">Delete</a>
+                                        <a class="btn-primary" asp-page="/AdminFolder/EditProduct" asp-route-id="@product.Id">Edit</a>
+                                    </div>
+                                </div>
                             </div>
+                            <br />
+
                         </div>
                     }
                 }

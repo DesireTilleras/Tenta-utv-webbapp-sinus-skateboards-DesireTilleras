@@ -63,6 +63,7 @@ namespace SinusSkateboards.UI.Pages
                 newProduct.Image = product.Image;
                 newProduct.Description = product.Description;
                 newProduct.Category = product.Category;
+                newProduct.ArticleNumber = product.ArticleNumber;
                 newProduct.OrderModelId = order.Id;
                 await _context.Products.AddAsync(newProduct);
             }

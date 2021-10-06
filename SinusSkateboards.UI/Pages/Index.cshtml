@@ -19,15 +19,15 @@
     }
 </script>
 
-<body style=" background-image:url(images/BackgroundPic/GettyImages-946920306-d90d5ddbd62b4e72852fe5dc595d59bd.jpg); background-size:100%; background-repeat:no-repeat">
 
+<body style=" background-image:url(images/BackgroundPic/GettyImages-946920306-d90d5ddbd62b4e72852fe5dc595d59bd.jpg); background-size:100%; background-repeat:no-repeat;background-color:gray">
     <form method="post" class="example">
         <div class="container" style="width:800px;text-align:center">
             <div class="row">
                 @foreach (var category in IndexModel.CategoryList)
                 {
                     <div class="col-md-2" style="padding-left:80px">
-                        <div class="card" style="width:100px" >
+                        <div class="card" style="width:100px">
                             <input type="checkbox" id="CategoryCap" name="Category" onclick="onlyOne(this)" value="@category.ToString()" />
                             <label for="CategoryCap" style="color:white">@category</label>
                         </div>
@@ -54,41 +54,194 @@
 
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
-           
+
 
         <div class="container">
-            <div class="row">
+            <div class="row pt-1">
                 @if (Model.MatchedProducts != null && Model.MatchedProducts.Any())
                 {
                     @foreach (var product in Model.MatchedProducts)
                     {
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="col">
-                                    <div class="row">
-                                        <a style="background-color:transparent" asp-page="ProductOverview" asp-route-id="@product.Id"><img src="~/images/@product.Image" class="img-thumbnail" style="width:100px" /> </a>
+                        @if (product.Category == Domain.Categories.skateboard)
+                        {
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="col">
+                                        <div class="row">
+                                            <a style="background-color:transparent" asp-page="ProductOverview" asp-route-id="@product.Id"><img src="~/images/@product.Image" class="img-thumbnail" style="width:100px" /> </a>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <h3 style="color:white; width:300px">
+                                                @product.Title
+                                            </h3>
+                                        </div>
+                                        <div class="row">
+                                            <h3 style="color:white">Price: @product.Price SEK</h3>
+                                        </div>
+                                        <div class="row">
+                                            <input class="btn-primary" asp-page-handler="AddToCart" asp-route-id="@product.Id" type="submit" value="Add to cart!" />
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="row">
-                                        <h3 style="color:white; width:300px">
-                                            @product.Title
-                                        </h3>
-                                    </div>
-                                    <div class="row">
-                                        <h3 style="color:white">Price: @product.Price SEK</h3>
-                                    </div>
-                                    <div class="row">
-                                        <input class="btn-primary" asp-page-handler="AddToCart" asp-route-id="@product.Id" type="submit" value="Add to cart!" />
-                                    </div>
-                                </div>
+
                             </div>
+                        }
+                    }
 
-                        </div>
+                }
 
+            </div>
+        </div>
+        <div class="container">
+            <div class="row pt-1">
+                @if (Model.MatchedProducts != null && Model.MatchedProducts.Any())
+                {
+                    @foreach (var product in Model.MatchedProducts)
+                    {
+                        @if (product.Category == Domain.Categories.wheel)
+                        {
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="col">
+                                        <div class="row">
+                                            <a style="background-color:transparent" asp-page="ProductOverview" asp-route-id="@product.Id"><img src="~/images/@product.Image" class="img-thumbnail" style="width:100px" /> </a>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <h3 style="color:white; width:300px">
+                                                @product.Title
+                                            </h3>
+                                        </div>
+                                        <div class="row">
+                                            <h3 style="color:white">Price: @product.Price SEK</h3>
+                                        </div>
+                                        <div class="row">
+                                            <input class="btn-primary" asp-page-handler="AddToCart" asp-route-id="@product.Id" type="submit" value="Add to cart!" />
+                                        </div>
+                                    </div>
+                                </div>
 
+                            </div>
+                        }
+                    }
+
+                }
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="row pt-1">
+                @if (Model.MatchedProducts != null && Model.MatchedProducts.Any())
+                {
+                    @foreach (var product in Model.MatchedProducts)
+                    {
+                        @if (product.Category == Domain.Categories.hoodie)
+                        {
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="col">
+                                        <div class="row">
+                                            <a style="background-color:transparent" asp-page="ProductOverview" asp-route-id="@product.Id"><img src="~/images/@product.Image" class="img-thumbnail" style="width:100px" /> </a>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <h3 style="color:white; width:300px">
+                                                @product.Title
+                                            </h3>
+                                        </div>
+                                        <div class="row">
+                                            <h3 style="color:white">Price: @product.Price SEK</h3>
+                                        </div>
+                                        <div class="row">
+                                            <input class="btn-primary" asp-page-handler="AddToCart" asp-route-id="@product.Id" type="submit" value="Add to cart!" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+                    }
+
+                }
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="row pt-1">
+                @if (Model.MatchedProducts != null && Model.MatchedProducts.Any())
+                {
+                    @foreach (var product in Model.MatchedProducts)
+                    {
+                        @if (product.Category == Domain.Categories.tshirt)
+                        {
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="col">
+                                        <div class="row">
+                                            <a style="background-color:transparent" asp-page="ProductOverview" asp-route-id="@product.Id"><img src="~/images/@product.Image" class="img-thumbnail" style="width:100px" /> </a>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <h3 style="color:white; width:300px">
+                                                @product.Title
+                                            </h3>
+                                        </div>
+                                        <div class="row">
+                                            <h3 style="color:white">Price: @product.Price SEK</h3>
+                                        </div>
+                                        <div class="row">
+                                            <input class="btn-primary" asp-page-handler="AddToCart" asp-route-id="@product.Id" type="submit" value="Add to cart!" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+                    }
+
+                }
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="row pt-1">
+                @if (Model.MatchedProducts != null && Model.MatchedProducts.Any())
+                {
+                    @foreach (var product in Model.MatchedProducts)
+                    {
+                        @if (product.Category == Domain.Categories.cap)
+                        {
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="col">
+                                        <div class="row">
+                                            <a style="background-color:transparent" asp-page="ProductOverview" asp-route-id="@product.Id"><img src="~/images/@product.Image" class="img-thumbnail" style="width:100px" /> </a>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <h3 style="color:white; width:300px">
+                                                @product.Title
+                                            </h3>
+                                        </div>
+                                        <div class="row">
+                                            <h3 style="color:white">Price: @product.Price SEK</h3>
+                                        </div>
+                                        <div class="row">
+                                            <input class="btn-primary" asp-page-handler="AddToCart" asp-route-id="@product.Id" type="submit" value="Add to cart!" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
                     }
 
                 }

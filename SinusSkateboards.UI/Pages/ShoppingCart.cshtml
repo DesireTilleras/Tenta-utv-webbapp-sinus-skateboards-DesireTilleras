@@ -4,13 +4,10 @@
 }
 
 <body style="background-image:none">
-
-
-
-    <form method="post">
-        <div class="container">
-            <div class="row">
-                <div class="col-7">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <form method="post">
                     @if (Model.CookieProducts != null && Model.CookieProducts.Any())
                     {
                         @foreach (var product in Model.CookieProducts)
@@ -20,35 +17,35 @@
                                     <img src="~/images/@product.Image" class="img-thumbnail" style="width:100px" asp-append-version="true" />
                                 </div>
                                 <div class="col">
-                                    <h5>
-                                        @product.Title
-                                    </h5>
-                                </div>
-                                <div class="col">
-                                    <h5>Price: @product.Price.ToString("#,##0") SEK</h5>
-                                </div>
-                                <div class="col">
-                                    <h5>Category : @product.Category</h5>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <p>Description: @product.Description</p>
-                                </div>
-                            </div>
-                            <div class="row text-center">
-                                <div class="col-2">
-                                    <input class="btn-primary" asp-page-handler="Delete" asp-route-id="@product.Id" type="submit" value="Delete from cart" />
-                                </div>
-                            </div>
+                                    <div class="row">
+                                        <h5>
+                                            @product.Title
+                                        </h5>
+                                    </div>
+                                    <div class="row">
+                                        <h5>Price: @product.Price.ToString("#,##0") SEK</h5>
+                                    </div>
+                                    <div class="row">
+                                        <h5>Category : @product.Category</h5>
+                                    </div>
+                                    <div class="row">
+                                        <p>Description: @product.Description</p>
+                                    </div>
+                                    <div class="row">
+                                        <input class="btn-primary" asp-page-handler="Delete" asp-route-id="@product.Id" type="submit" value="Delete from cart" />
+                                    </div>
+                                </div> 
+                         </div>
                         }
                     }
                     <div class="row">
                         <h4>Total price of @Model.TotalPrice SEK </h4>
                     </div>
-                </div>
 
-                <div class="col">
+                </form>
+            </div>
+            <div class="col">
+                <form method="post">
                     <div class="wrapper fadeInDown">
                         <div id="formContent">
                             <!-- Tabs Titles -->
@@ -63,9 +60,10 @@
                             <button class="btn-primary" type="submit" asp-page-handler="NewCustomer"> Save and continue</button><br />
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
-    </form>
-
+       
+    </div>
+    
 </body>

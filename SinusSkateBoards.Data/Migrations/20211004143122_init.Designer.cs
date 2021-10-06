@@ -10,7 +10,7 @@ using SinusSkateBoards.Data.Database;
 namespace SinusSkateBoards.Data.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20210930103515_init")]
+    [Migration("20211004143122_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -275,6 +275,9 @@ namespace SinusSkateBoards.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ArticleNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Category")
                         .HasColumnType("int");

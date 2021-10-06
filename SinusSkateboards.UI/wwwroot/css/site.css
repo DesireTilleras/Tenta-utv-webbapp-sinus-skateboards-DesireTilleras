@@ -18,6 +18,7 @@ body {
     min-height:1000px;
 }
 
+
 a {
     background-color: #56baed;
     border: none;
@@ -497,4 +498,14 @@ form.example::after {
     content: "";
     clear: both;
     display: table;
+}
+
+.footer {
+    background-color:white;
+    margin: 0;
+    padding: 0;
+    width: 90vw;
+    height: 22.5vh;
+    float: right;
+    overflow: auto;
 }

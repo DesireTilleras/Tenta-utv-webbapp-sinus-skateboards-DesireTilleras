@@ -22,7 +22,6 @@ namespace SinusSkateboards.UI.Pages
         [BindProperty]
         public decimal TotalPrice { get; set; }
 
-        public OrderModel Order { get; set; } = new OrderModel();
 
         private readonly AuthDbContext _context;
 
@@ -46,7 +45,7 @@ namespace SinusSkateboards.UI.Pages
 
             await _context.SaveChangesAsync();
 
-            Customer =_context.Customers.Where(n => n.PhoneNumber == Customer.PhoneNumber).FirstOrDefault();
+            Customer =_context.Customers.Where(n => n.Id == Customer.Id).FirstOrDefault();
 
              return RedirectToPage("OrderOverview", new { id = Customer.Id });
 

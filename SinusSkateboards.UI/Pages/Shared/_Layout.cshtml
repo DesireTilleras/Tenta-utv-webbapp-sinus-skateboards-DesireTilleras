@@ -14,10 +14,12 @@
 </head>
 <body>
     <header>
+ 
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+           
             <div class="container">
-                <a style="background-color:transparent" asp-page="ISO9001"><img src="~/images/logos/kisspng-iso-9000-certification-iso-9001-2015-as9100-intern-bb-optics-film-lab-5b1bf6a62bd6d6.4557042915285592701796.jpg" style="width:100px" /></a>
-                <a style="background-color:transparent" asp-page="/Index"><img src="~/images/logos/sinus-logo-symbol-small.png" /></a>
+
+                <a style="background-color:transparent" asp-page="/Index"><img src="~/images/logos/sinus-logo-symbol-small.png" style="width:100px" /></a>
 
                 @if (SignInManager.IsSignedIn(User))
                 {
@@ -31,6 +33,7 @@
                     var count = IndexModel.ProductsAddedToCart.Count();
                     <a asp-page="Login"> Login </a>
                     <a asp-page="ShoppingCart">Shopping cart @count<i class="fa fa-shopping-cart"> </i></a>
+                    <a style="background-color:transparent" asp-page="ISO9001"><img src="~/images/logos/kisspng-iso-9000-certification-iso-9001-2015-as9100-intern-bb-optics-film-lab-5b1bf6a62bd6d6.4557042915285592701796.jpg" style="width:100px" /></a>
                 }
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -53,5 +56,14 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
+
+<div class="footer" style="background-color:transparent; width:200px">
+    <img src="~/images/logos/sinus-logo-portrait-small.png" />
+</div>
+
 </body>
+
+
 </html>
+
+

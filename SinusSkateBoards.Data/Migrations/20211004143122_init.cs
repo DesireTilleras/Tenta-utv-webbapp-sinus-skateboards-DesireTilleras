@@ -201,6 +201,7 @@ namespace SinusSkateBoards.Data.Migrations
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Category = table.Column<int>(type: "int", nullable: false),
+                    ArticleNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     OrderModelId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
