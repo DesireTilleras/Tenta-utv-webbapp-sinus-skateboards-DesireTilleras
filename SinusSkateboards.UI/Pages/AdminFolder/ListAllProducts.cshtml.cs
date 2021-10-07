@@ -24,7 +24,6 @@ namespace SinusSkateboards.UI.Pages.AdminFolder
         {
             ListOfAllProducts = _context.Products.Select(x => x).ToList();
 
-            ListOfAllProducts = ListOfAllProducts.GroupBy(x => x.ArticleNumber).Select(x => x.FirstOrDefault()).ToList();
         }
     }
 }

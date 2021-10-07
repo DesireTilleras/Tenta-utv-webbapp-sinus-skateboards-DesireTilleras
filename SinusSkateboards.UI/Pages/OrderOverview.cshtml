@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="row">
-        <h4>Total price of @Model.TotalPrice SEK </h4>
+        <h4>Amount of products: @IndexModel.ProductsAddedToCart.Count(). Total price of @Model.TotalPrice SEK </h4>
     </div>
 
     <a asp-page="ConfirmationPage" asp-route-id="@Model.Customer.Id"> Click here to confirm order</a>

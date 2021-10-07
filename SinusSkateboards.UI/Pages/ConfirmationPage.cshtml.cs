@@ -29,7 +29,7 @@ namespace SinusSkateboards.UI.Pages
 
         [BindProperty]
 
-        public List<ProductModel> Products { get; set; } = new List<ProductModel>();
+        public List<OrderedProductModel> Products { get; set; } = new List<OrderedProductModel>();
 
 
         [BindProperty]
@@ -74,12 +74,7 @@ namespace SinusSkateboards.UI.Pages
 
             var orderedProducts = _context.OrderedProducts.Where(x => x.OrderModelId == Order.Id).ToList();
 
-            foreach (var orderedProduct in orderedProducts)
-            {
-                var product = _context.Products.Where(x => x.Id == orderedProduct.ProductModelId).FirstOrDefault();
-                Products.Add(product);
-            }
-
+            Products = _context.OrderedProducts.Where(x => x.OrderModelId == Order.Id).Include(x => x.ProductModel).ToList();
 
             string stringCartItems = HttpContext.Session.GetString("AddToCart");
 

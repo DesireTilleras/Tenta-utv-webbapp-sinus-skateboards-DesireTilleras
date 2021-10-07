@@ -19,6 +19,10 @@ namespace SinusSkateboards.UI.Pages
         public static List<Categories> CategoryList { get; set; } = Enum.GetValues(typeof(Categories)).Cast<Categories>().ToList();
 
         [BindProperty]
+
+        public static List<string> ColorList { get; set; } = new List<string>();
+
+        [BindProperty]
         public static List<ProductModel> ListOfAllProducts { get; set; }
 
         public static List<ProductModel> ProductsAddedToCart { get; set; } = new List<ProductModel>();
@@ -41,11 +45,28 @@ namespace SinusSkateboards.UI.Pages
             ListOfAllProducts = _context.Products.Select(x => x).ToList();
                 
             CategoryList = Enum.GetValues(typeof(Categories)).Cast<Categories>().ToList();
+
+            ColorList = _context.Products.Select(x => x.Color).ToList();
         }
 
-        public IActionResult OnPost(string search, string category)
+        public IActionResult OnPost(string search, string category, string color)
         {
-            if (category != "Category")
+            if (category != "Category" && color != "Color")
+            {
+                MatchedProducts = ListOfAllProducts.Where(x => x.Category.ToString() == category).Where(c => c.Color == color).ToList().Distinct().ToList();
+
+                if (search != null)
+                {
+                    MatchedProducts = MatchedProducts.Where(x => x.Title.ToLower().Contains(search.ToLower())
+                || x.Description.ToLower().Contains(search.ToLower())
+                || x.Color.ToLower().Contains(search.ToLower())
+                || x.Category.ToString().ToLower().Contains(search.ToLower())).ToList();
+                }
+
+                return Page();
+
+            }
+            if (category != "Category" && color == "Color")
             {
                 MatchedProducts = ListOfAllProducts.Where(x => x.Category.ToString() == category).ToList().Distinct().ToList();
 
@@ -57,7 +78,20 @@ namespace SinusSkateboards.UI.Pages
                 || x.Category.ToString().ToLower().Contains(search.ToLower())).ToList();
                 }
 
-                MatchedProducts = MatchedProducts.GroupBy(x => x.Image).Select(x => x.FirstOrDefault()).ToList();
+                return Page();
+
+            }
+            if (category == "Category" && color != "Color")
+            {
+                MatchedProducts = ListOfAllProducts.Where(x => x.Color == color).ToList().Distinct().ToList();
+
+                if (search != null)
+                {
+                    MatchedProducts = MatchedProducts.Where(x => x.Title.ToLower().Contains(search.ToLower())
+                || x.Description.ToLower().Contains(search.ToLower())
+                || x.Color.ToLower().Contains(search.ToLower())
+                || x.Category.ToString().ToLower().Contains(search.ToLower())).ToList();
+                }
 
                 return Page();
 
@@ -71,7 +105,6 @@ namespace SinusSkateboards.UI.Pages
                     || x.Color.ToLower().Contains(search.ToLower())
                     || x.Category.ToString().ToLower().Contains(search.ToLower())).ToList();
 
-                    MatchedProducts = MatchedProducts.GroupBy(x => x.Image).Select(x => x.FirstOrDefault()).ToList();
 
                     return Page();
 
@@ -86,7 +119,7 @@ namespace SinusSkateboards.UI.Pages
 
         public void OnPostListAll()
         {
-            MatchedProducts = ListOfAllProducts.GroupBy(x => x.Image).Select(x => x.FirstOrDefault()).ToList();
+            MatchedProducts = ListOfAllProducts;
         }
         public void OnPostAddToCart(int id)
         {

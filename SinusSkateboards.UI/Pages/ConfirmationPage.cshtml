@@ -33,13 +33,13 @@
                     <div class="card">
                         <div class="row">
                             <div class="col">
-                                <img src="~/images/@product.Image" style="width:50px" />
+                                <img src="~/images/@product.ProductModel.Image" style="width:50px" />
                             </div>
                             <div class="col">
-                                <h5>Product number : @product.ArticleNumber</h5>
-                                <h5>Title: @product.Title</h5>
-                                <h5>Color: @product.Color</h5>
-                                <h5>Price: @product.Price</h5>
+                                <h5>Product number : @product.ProductModel.ArticleNumber</h5>
+                                <h5>Title: @product.ProductModel.Title</h5>
+                                <h5>Color: @product.ProductModel.Color</h5>
+                                <h5>Price: @product.ProductModel.Price</h5>
                             </div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
         </div>
     </div>
     <div class="row">
-        <h4>Total price of @Model.TotalPrice SEK will be withdrawn from your Klarna account</h4>
+        <h4>Amount of products: @Model.Products.Count(). Total price of @Model.TotalPrice SEK will be withdrawn from your Klarna account</h4>
     </div>
 
     <div class="container">
