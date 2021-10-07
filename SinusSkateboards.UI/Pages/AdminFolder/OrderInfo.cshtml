@@ -20,14 +20,13 @@
             <div class="col">
                 <h5>Product details:</h5>
 
-                @foreach (var product in Model.Order.Products)
+                @foreach (var product in Model.Products)
                 {
                     <h5>Product number : @product.Id</h5>
                     <h5>Title: @product.Title</h5>
                     <h5>Color: @product.Color</h5>
                     <h5>Price: @product.Price</h5>
                 }
-            </div>
         </div>
         <div class="row pt-4">
             <h5>Total amount of products: @Model.AmountOfProducts</h5>
@@ -37,6 +36,7 @@
         </div>
 
     </div>
+        </div>
 
 
 

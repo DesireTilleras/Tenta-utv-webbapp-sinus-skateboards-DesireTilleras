@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SinusSkateBoards.Data.Migrations
 {
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -61,6 +61,25 @@ namespace SinusSkateBoards.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Customers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Category = table.Column<int>(type: "int", nullable: false),
+                    ArticleNumber = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Products", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -190,29 +209,29 @@ namespace SinusSkateBoards.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Products",
+                name: "OrderedProducts",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Category = table.Column<int>(type: "int", nullable: false),
-                    ArticleNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    OrderModelId = table.Column<int>(type: "int", nullable: true)
+                    OrderModelId = table.Column<int>(type: "int", nullable: false),
+                    ProductModelId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Products", x => x.Id);
+                    table.PrimaryKey("PK_OrderedProducts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Products_Orders_OrderModelId",
+                        name: "FK_OrderedProducts_Orders_OrderModelId",
                         column: x => x.OrderModelId,
                         principalTable: "Orders",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_OrderedProducts_Products_ProductModelId",
+                        column: x => x.ProductModelId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -255,14 +274,19 @@ namespace SinusSkateBoards.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_OrderedProducts_OrderModelId",
+                table: "OrderedProducts",
+                column: "OrderModelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrderedProducts_ProductModelId",
+                table: "OrderedProducts",
+                column: "ProductModelId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Orders_CustomerModelId",
                 table: "Orders",
                 column: "CustomerModelId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_OrderModelId",
-                table: "Products",
-                column: "OrderModelId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -283,7 +307,7 @@ namespace SinusSkateBoards.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "OrderedProducts");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -293,6 +317,9 @@ namespace SinusSkateBoards.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Orders");
+
+            migrationBuilder.DropTable(
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Customers");

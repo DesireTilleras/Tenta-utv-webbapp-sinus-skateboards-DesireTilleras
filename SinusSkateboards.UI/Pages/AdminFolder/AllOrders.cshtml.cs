@@ -25,7 +25,7 @@ namespace SinusSkateboards.UI.Pages.AdminFolder
         public void OnGet()
         {
 
-            AllOrders = _context.Orders.Include(c => c.CustomerModel).Include(p => p.Products).ToList();          
+            AllOrders = _context.Orders.Include(c => c.CustomerModel).Include(p => p.OrderedProducts).ToList();          
 
 
         }

@@ -10,8 +10,8 @@ using SinusSkateBoards.Data.Database;
 namespace SinusSkateBoards.Data.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20211004143122_init")]
-    partial class init
+    [Migration("20211007092805_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -269,6 +269,28 @@ namespace SinusSkateBoards.Data.Migrations
                     b.ToTable("Orders");
                 });
 
+            modelBuilder.Entity("SinusSkateboards.Domain.OrderedProductModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("OrderModelId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductModelId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderModelId");
+
+                    b.HasIndex("ProductModelId");
+
+                    b.ToTable("OrderedProducts");
+                });
+
             modelBuilder.Entity("SinusSkateboards.Domain.ProductModel", b =>
                 {
                     b.Property<int>("Id")
@@ -291,9 +313,6 @@ namespace SinusSkateBoards.Data.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("OrderModelId")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -302,8 +321,6 @@ namespace SinusSkateBoards.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("OrderModelId");
 
                     b.ToTable("Products");
                 });
@@ -370,18 +387,28 @@ namespace SinusSkateBoards.Data.Migrations
                     b.Navigation("CustomerModel");
                 });
 
-            modelBuilder.Entity("SinusSkateboards.Domain.ProductModel", b =>
+            modelBuilder.Entity("SinusSkateboards.Domain.OrderedProductModel", b =>
                 {
                     b.HasOne("SinusSkateboards.Domain.OrderModel", "OrderModel")
-                        .WithMany("Products")
-                        .HasForeignKey("OrderModelId");
+                        .WithMany("OrderedProducts")
+                        .HasForeignKey("OrderModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SinusSkateboards.Domain.ProductModel", "ProductModel")
+                        .WithMany()
+                        .HasForeignKey("ProductModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("OrderModel");
+
+                    b.Navigation("ProductModel");
                 });
 
             modelBuilder.Entity("SinusSkateboards.Domain.OrderModel", b =>
                 {
-                    b.Navigation("Products");
+                    b.Navigation("OrderedProducts");
                 });
 #pragma warning restore 612, 618
         }

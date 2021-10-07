@@ -15,6 +15,12 @@ namespace SinusSkateboards.UI.Pages.AdminFolder
         [BindProperty]
         public OrderModel Order { get; set; }
 
+        public List<OrderedProductModel> OrderedProducts { get; set; }
+
+        [BindProperty]
+
+        public List<ProductModel> Products { get; set; } = new List<ProductModel>();
+
         [BindProperty]
         public decimal TotalPrice { get; set; }
 
@@ -31,11 +37,19 @@ namespace SinusSkateboards.UI.Pages.AdminFolder
         public void OnGet(int id)
         {
 
-            Order = _context.Orders.Where(x => x.Id == id).Include(c => c.CustomerModel).Include(p => p.Products).FirstOrDefault();
+            Order = _context.Orders.Where(x => x.Id == id).Include(c => c.CustomerModel).Include(p => p.OrderedProducts).FirstOrDefault();
 
-            foreach (var amount in Order.Products)
+           OrderedProducts = Order.OrderedProducts.Where(x => x.OrderModelId == Order.Id).ToList();
+
+            foreach (var orderedProduct in OrderedProducts)
             {
-                TotalPrice += amount.Price;
+                var product = _context.Products.Where(x => x.Id == orderedProduct.ProductModelId).FirstOrDefault();
+                Products.Add(product);
+            }
+
+            foreach (var product in Products)
+            {
+                TotalPrice += product.Price;
                 AmountOfProducts += 1;
             }
 

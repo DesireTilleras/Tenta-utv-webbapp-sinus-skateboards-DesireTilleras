@@ -11,7 +11,7 @@ namespace SinusSkateboards.Domain
         public int Id { get; set; }
         public int CustomerModelId { get; set; }
         public virtual CustomerModel CustomerModel { get; set; }
-        public virtual List<ProductModel> Products { get; set; }
+        public virtual List<OrderedProductModel> OrderedProducts { get; set; }
         public DateTime Date { get; set; }
 
     }

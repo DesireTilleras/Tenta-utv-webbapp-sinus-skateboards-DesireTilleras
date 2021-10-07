@@ -19,8 +19,6 @@ namespace SinusSkateboards.Domain
         public string Description { get; set; }
         public Categories Category { get; set; }
         public string? ArticleNumber { get; set; }
-        public int? OrderModelId { get; set; }
-        public virtual OrderModel OrderModel { get; set; }
 
     }
 }

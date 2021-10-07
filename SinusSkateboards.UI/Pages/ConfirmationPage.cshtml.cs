@@ -27,6 +27,10 @@ namespace SinusSkateboards.UI.Pages
 
         public OrderModel Order { get; set; } = new OrderModel();
 
+        [BindProperty]
+
+        public List<ProductModel> Products { get; set; } = new List<ProductModel>();
+
 
         [BindProperty]
         public CustomerModel Customer { get; set; }
@@ -56,23 +60,25 @@ namespace SinusSkateboards.UI.Pages
 
             foreach (var product in IndexModel.ProductsAddedToCart)
             {
-                var newProduct = new ProductModel();
-                newProduct.Title = product.Title;
-                newProduct.Color = product.Color;
-                newProduct.Price = product.Price;
-                newProduct.Image = product.Image;
-                newProduct.Description = product.Description;
-                newProduct.Category = product.Category;
-                newProduct.ArticleNumber = product.ArticleNumber;
-                newProduct.OrderModelId = order.Id;
-                await _context.Products.AddAsync(newProduct);
+                var orderedProduct = new OrderedProductModel();
+                orderedProduct.ProductModelId = product.Id;
+                orderedProduct.OrderModelId = order.Id;
+
+                await _context.OrderedProducts.AddAsync(orderedProduct);
             }
 
 
             await _context.SaveChangesAsync();
 
-            Order = _context.Orders.Where(x => x.Id == order.Id).Include(c => c.CustomerModel).Include(p => p.Products).FirstOrDefault();
+            Order = _context.Orders.Where(x => x.Id == order.Id).Include(c => c.CustomerModel).Include(p => p.OrderedProducts).FirstOrDefault();
 
+            var orderedProducts = _context.OrderedProducts.Where(x => x.OrderModelId == Order.Id).ToList();
+
+            foreach (var orderedProduct in orderedProducts)
+            {
+                var product = _context.Products.Where(x => x.Id == orderedProduct.ProductModelId).FirstOrDefault();
+                Products.Add(product);
+            }
 
 
             string stringCartItems = HttpContext.Session.GetString("AddToCart");
