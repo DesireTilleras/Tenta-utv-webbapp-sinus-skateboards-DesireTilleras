@@ -12,7 +12,9 @@
         <form method="post" enctype="multipart/form-data">
 
             <input id="title" type="text" asp-for="@Model.Product.Title" placeholder="Title" required />
-            <input id="price" type="text" asp-for="@Model.Product.Price" placeholder="Price" required />
+            <br />
+            <label for="price">Price</label>
+            <input id="price" type="number" asp-for="@Model.Product.Price" placeholder="Price" required />
             <input id="color" type="text" asp-for="@Model.Product.Color" placeholder="Color" required />
             <input id="articleNumber" type="text" asp-for="@Model.Product.ArticleNumber" placeholder="Article number (Ex. 4580)" required />
             <input id="description" type="text" asp-for="@Model.Product.Description" placeholder="Description" required />

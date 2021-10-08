@@ -22,8 +22,10 @@
             <input hidden asp-for="@Model.Product.ArticleNumber" />
             <input id="title" type="text" asp-for="@Model.NewArticleNumber" placeholder="New article number" />
             <h2>Current price: @Model.Product.Price SEK</h2>
+            <br />
             <input hidden asp-for="@Model.Product.Price" />
-            <input id="price" type="text" asp-for="@Model.NewPrice" placeholder="New Price" />
+            <label for="price">New price: </label>
+            <input id="price" type="number" asp-for="@Model.NewPrice" placeholder="New Price" />
             <br />
             <h2>Current color:  @Model.Product.Color</h2>
             <input hidden asp-for="@Model.Product.Color" />

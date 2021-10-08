@@ -30,7 +30,11 @@
     <form method="post" class="example">
         <div class="container" style="width:800px;text-align:center">
             <div class="row">
-                <h5>Category:</h5>
+                <div class="col">
+                    <h5 style="color:white">Category:</h5>
+                </div>
+            </div>
+            <div class="row">
                 @foreach (var category in IndexModel.CategoryList)
                 {
                     <div class="col-md-2" style="padding-left:80px">
@@ -41,8 +45,12 @@
                     </div>
                 }
             </div>
-            <div class="row">
-                <h5>Colors:</h5>
+            <div class="row pt-2">
+                <div class="col">
+                    <h5 style="color:white">Colors:</h5>
+                </div>
+            </div>
+            <div class="row pt-2">
                 @foreach (var color in IndexModel.ColorList)
                 {
                     <div class="col-md-2" style="padding-left:80px">
