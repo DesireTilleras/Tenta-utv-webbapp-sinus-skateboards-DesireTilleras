@@ -28,12 +28,21 @@
                     <h5>Price: @product.Price</h5>
                 }
         </div>
-        <div class="row pt-4">
-            <h5>Total amount of products: @Model.AmountOfProducts</h5>
-        </div>
-        <div class="row pt-4">
-            <h5> Total amount sold : @Model.TotalPrice SEK</h5>
-        </div>
+            <div class="col">
+                <div class="row pt-4">
+                    <div class="col">
+                        <h5>Total amount of products: @Model.AmountOfProducts</h5>
+                    </div>
+
+                </div>
+                <div class="row pt-4">
+                    <div class="col">
+                        <h5> Total amount sold : @Model.TotalPrice SEK</h5>
+                    </div>
+
+                </div>
+            </div>
+
 
     </div>
         </div>
